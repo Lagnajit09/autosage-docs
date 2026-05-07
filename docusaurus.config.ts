@@ -1,44 +1,44 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: 'AutoSage',
-  tagline: 'Automation platform powered by AI agents',
-  favicon: 'img/favicon.svg',
+  title: "AutoSage",
+  tagline: "Automation platform powered by AI agents",
+  favicon: "img/icon.png",
 
-  url: 'https://autosage-docs.example.com',
-  baseUrl: '/',
+  url: "https://autosage-docs.example.com",
+  baseUrl: "/",
 
-  organizationName: 'Lagnajit09',
-  projectName: 'autosage-docs',
+  organizationName: "Lagnajit09",
+  projectName: "autosage-docs",
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: "throw",
 
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
-      onBrokenMarkdownImages: 'warn',
+      onBrokenMarkdownLinks: "warn",
+      onBrokenMarkdownImages: "warn",
     },
   },
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          routeBasePath: '/',
-          editUrl: 'https://github.com/Lagnajit09/autosage-docs/tree/main/',
+          sidebarPath: "./sidebars.ts",
+          routeBasePath: "/",
+          editUrl: "https://github.com/Lagnajit09/autosage-docs/tree/main/",
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -46,28 +46,25 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: 'AutoSage',
+      title: "AutoSage",
       logo: {
-        alt: 'AutoSage Logo',
-        src: 'img/logo.svg',
+        alt: "AutoSage Logo",
+        src: "img/logo.png",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
-          position: 'left',
-          label: 'Docs',
+          type: "docSidebar",
+          sidebarId: "docsSidebar",
+          position: "left",
+          label: "Docs",
         },
         {
-          href: 'https://github.com/Lagnajit09/autosage',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/Lagnajit09/autosage",
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} AutoSage.`,
     },
     prism: {
       theme: prismThemes.github,

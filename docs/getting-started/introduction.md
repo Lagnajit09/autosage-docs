@@ -5,20 +5,9 @@ title: Introduction
 description: AutoSage is a server management and workflow automation platform. Run scripts on your servers manually, on a schedule, or via webhooks — all from one dashboard.
 ---
 
-import ThemedImage from '@theme/ThemedImage';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-
 # Introduction
 
 Welcome to AutoSage.
-
-<ThemedImage
-  alt="AutoSage Landing Page"
-  sources={{
-    light: useBaseUrl('/img/screenshots/landing-light.png'),
-    dark: useBaseUrl('/img/screenshots/landing-dark.png'),
-  }}
-/>
 
 ## What is AutoSage?
 
@@ -38,8 +27,8 @@ If you've used tools like n8n or Zapier, the workflow concept will feel familiar
 
 A **workflow** in AutoSage is a graph of three node types:
 
-- **Trigger nodes** start a workflow. The trigger types are *Manual* (run from the UI), *HTTP Webhook* (run when a URL is hit), and *Cron Scheduler* (run on a recurring schedule).
-- **Action nodes** do the work. The action types are *Script* (run a Python/PowerShell/Shell script on a server) and *Email* (send a notification).
+- **Trigger nodes** start a workflow. The trigger types are _Manual_ (run from the UI), _HTTP Webhook_ (run when a URL is hit), and _Cron Scheduler_ (run on a recurring schedule).
+- **Action nodes** do the work. The action types are _Script_ (run a Python/PowerShell/Shell script on a server) and _Email_ (send a notification).
 - **Decision nodes** branch the flow based on a true/false condition — useful for "only continue if the previous step succeeded" patterns.
 
 Each Action node targets exactly **one** server, which is why a single workflow can manage multiple servers in parallel: each node owns its own target. Servers and credentials live in the **Vault**, where you can save them once and reuse them across any workflow.
@@ -52,13 +41,6 @@ Each Action node targets exactly **one** server, which is why a single workflow 
 
 Already have an account? Sign in at **[autosagex.web.app/signin](https://autosagex.web.app/signin)**.
 
-<ThemedImage
-  alt="AutoSage signup page"
-  sources={{
-    light: useBaseUrl('/img/screenshots/signup-light.png'),
-    dark: useBaseUrl('/img/screenshots/signup-dark.png'),
-  }}
-/>
 <!-- TODO: replace with real screenshot of /signup -->
 
 ## What's next
