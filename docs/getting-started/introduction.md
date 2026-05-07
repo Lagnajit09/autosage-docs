@@ -5,9 +5,20 @@ title: Introduction
 description: AutoSage is a server management and workflow automation platform. Run scripts on your servers manually, on a schedule, or via webhooks — all from one dashboard.
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Introduction
 
 Welcome to AutoSage.
+
+<ThemedImage
+  alt="AutoSage Landing Page"
+  sources={{
+    light: useBaseUrl('/img/screenshots/landing-light.png'),
+    dark: useBaseUrl('/img/screenshots/landing-dark.png'),
+  }}
+/>
 
 ## What is AutoSage?
 
@@ -41,7 +52,13 @@ Each Action node targets exactly **one** server, which is why a single workflow 
 
 Already have an account? Sign in at **[autosagex.web.app/signin](https://autosagex.web.app/signin)**.
 
-![AutoSage signup page](/img/screenshots/signup.png)
+<ThemedImage
+  alt="AutoSage signup page"
+  sources={{
+    light: useBaseUrl('/img/screenshots/signup-light.png'),
+    dark: useBaseUrl('/img/screenshots/signup-dark.png'),
+  }}
+/>
 <!-- TODO: replace with real screenshot of /signup -->
 
 ## What's next
