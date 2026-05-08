@@ -23,11 +23,32 @@
 
   /* Sidebar Width */
   --doc-sidebar-width: 260px !important;
+
+  /* Solid page background (Infima leaves this `transparent` in light mode,
+     which makes anything chained off it transparent too — navbar, search modal). */
+  --ifm-background-color: #ffffff;
+
+  /* Navbar inherits page background in both themes */
+  --ifm-navbar-background-color: var(--ifm-background-color);
+
+  /* Search modal tuning (overrides easyops-search-local defaults) */
+  --search-local-modal-background: var(--ifm-background-color);
+  --search-local-modal-width: 440px;
+  --search-local-modal-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  --search-local-spacing: 10px;
+  --search-local-hit-background: var(--ifm-color-emphasis-100);
+  --search-local-hit-color: var(--ifm-color-emphasis-900);
+  --search-local-hit-shadow: none;
+  --search-local-hit-height: 44px;
+  --search-local-muted-color: var(--ifm-color-emphasis-600);
+  --search-local-highlight-color: var(--ifm-color-primary);
+  --search-local-input-active-border-color: var(--ifm-color-primary);
 }
 
-/* Navbar: same as body */
+/* Navbar: flat, body-coloured */
 .navbar {
-  background-color: var(--ifm-background-color) !important;
   box-shadow: none !important;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
@@ -56,11 +77,11 @@
   -webkit-mask-size: contain;
 }
 
-/* Left sidebar: category vs page link sizing */
-.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link,
+/* Left sidebar: uniform link sizing */
+.menu__link,
 .menu__link--sublist {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 
@@ -71,12 +92,6 @@
   height: 14px !important;
   background-size: contain !important;
   min-width: 14px !important;
-}
-
-.theme-doc-sidebar-item-link .menu__link,
-.theme-doc-sidebar-item-category .menu__list .menu__link {
-  font-size: 0.875rem;
-  font-weight: 500;
 }
 
 /* TOC Header Styling */
@@ -171,6 +186,146 @@
   --ifm-color-primary-lighter: #e9d5ff;
   --ifm-color-primary-lightest: #f3e8ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Dark-mode search overrides */
+  --search-local-modal-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.5);
+  --search-local-hit-background: var(--ifm-color-emphasis-200);
+  --search-local-hit-color: var(--ifm-font-color-base);
+}
+
+/* ===== Search bar ===== */
+
+/* Input pill */
+.navbar__search-input {
+  width: 14rem;
+  height: 36px;
+  font-size: 0.8125rem;
+  font-family: var(--ifm-font-family-base);
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--ifm-color-emphasis-100);
+  background-position: 12px center;
+  background-size: 14px 14px;
+  padding-left: 34px;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.navbar__search-input::placeholder {
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+}
+
+.navbar__search-input:hover {
+  border-color: var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.navbar__search-input:focus {
+  outline: none !important;
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-background-color);
+  box-shadow: 0 0 0 3px var(--ifm-color-primary-lightest);
+}
+
+[data-theme="dark"] .navbar__search-input:focus {
+  box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.18);
+}
+
+@media (max-width: 996px) {
+  .navbar__search-input {
+    width: 100%;
+  }
+}
+
+/* Dropdown panel — typography + scroll */
+.navbar__search [class*="dropdownMenu"] {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8125rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Hit cards */
+.navbar__search [class*="dropdownMenu"] [class*="suggestion"] {
+  border-radius: 6px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  transition:
+    background-color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.navbar__search [class*="dropdownMenu"] [class*="hitTitle"] {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+.navbar__search [class*="dropdownMenu"] [class*="hitPath"] {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.navbar__search [class*="dropdownMenu"] [class*="hitWrapper"] mark {
+  font-weight: 700;
+}
+
+.navbar__search [class*="dropdownMenu"] [class*="hitFooter"] {
+  font-size: 0.6875rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Minimalist scrollbar (search dropdown + dedicated /search page) */
+.navbar__search [class*="dropdownMenu"]::-webkit-scrollbar,
+[class*="searchQueryContainer"]::-webkit-scrollbar,
+main[itemprop="mainContentOfPage"]::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.navbar__search [class*="dropdownMenu"]::-webkit-scrollbar-track,
+[class*="searchQueryContainer"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.navbar__search [class*="dropdownMenu"]::-webkit-scrollbar-thumb,
+[class*="searchQueryContainer"]::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+}
+
+.navbar__search [class*="dropdownMenu"]::-webkit-scrollbar-thumb:hover,
+[class*="searchQueryContainer"]::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-500);
+}
+
+.navbar__search [class*="dropdownMenu"] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ifm-color-emphasis-300) transparent;
+}
+
+/* Dedicated /search results page */
+article [class*="searchResultItemHeading"] a {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+article [class*="searchResultItemPath"] {
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+article [class*="searchResultItemSummary"] {
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
 .theme-doc-markdown {

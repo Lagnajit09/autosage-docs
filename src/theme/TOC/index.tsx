@@ -5,8 +5,6 @@ import type {Props} from '@theme/TOC';
 
 import styles from './styles.module.css';
 
-// Using a custom className
-// This prevents TOCInline/TOCCollapsible getting highlighted by mistake
 const LINK_CLASS_NAME = 'table-of-contents__link toc-highlight';
 const LINK_ACTIVE_CLASS_NAME = 'table-of-contents__link--active';
 
