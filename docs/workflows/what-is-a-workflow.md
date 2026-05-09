@@ -19,7 +19,7 @@ Server work tends to be **repetitive, multi-step, and brittle**. A typical task 
 
 A workflow gives you:
 
-- **A visual mental model** — you can *see* what happens when, instead of reading through a 200-line bash script.
+- **A visual mental model** — you can _see_ what happens when, instead of reading through a 200-line bash script.
 - **Reusable building blocks** — define a server and its credentials once in the Vault, reference them from any workflow.
 
 - **Multiple ways to trigger** — run on demand, on a schedule, or from an external system (CI, GitHub Actions, monitoring) via webhook.
@@ -31,8 +31,8 @@ A workflow gives you:
 A workflow is made of two things: **nodes** (the steps) and **edges** (the connections between them).
 
 <ThemedImage
-  alt="Anatomy of a workflow: a Trigger node connecting to an Action node, then a Decision node branching into two further Action nodes"
-  sources={{
+alt="Anatomy of a workflow: a Trigger node connecting to an Action node, then a Decision node branching into two further Action nodes"
+sources={{
     light: useBaseUrl('/img/diagrams/workflow-svg-light.svg'),
     dark: useBaseUrl('/img/diagrams/workflow-svg-dark.svg'),
   }}
@@ -40,11 +40,11 @@ A workflow is made of two things: **nodes** (the steps) and **edges** (the conne
 
 There are three kinds of nodes, and every workflow uses them in roughly the same shape:
 
-| Node type | What it does | Examples |
-|-----------|--------------|----------|
-| **Trigger** | Starts the workflow. Every workflow has exactly one. | *Manual* — run it yourself from the dashboard.<br/>*HTTP Webhook* — fire it from an external system.<br/>*Cron Scheduler* — run it on a recurring schedule. |
-| **Action** | Does the work. A workflow can have many. | *Script* — run a Python, PowerShell, or Shell script on a server.<br/>*Email* — send a notification. |
-| **Decision** | Branches the flow on a true/false condition. | "Continue only if the previous step exited with code 0."<br/>"Run cleanup branch if disk usage > 90%." |
+| Node type    | What it does                                         | Examples                                                                                                                                                    |
+| ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Trigger**  | Starts the workflow. Every workflow has exactly one. | _Manual_ — run it yourself from the dashboard.<br/>_HTTP Webhook_ — fire it from an external system.<br/>_Cron Scheduler_ — run it on a recurring schedule. |
+| **Action**   | Does the work. A workflow can have many.             | _Script_ — run a Python, PowerShell, or Shell script on a server.<br/>_Email_ — send a notification.                                                        |
+| **Decision** | Branches the flow on a true/false condition.         | "Continue only if the previous step exited with code 0."<br/>"Run cleanup branch if disk usage > 90%."                                                      |
 
 Nodes are connected by **edges** — directed lines that say "after this node finishes, run that one next." Edges out of a Decision node carry a label (`true` or `false`) so AutoSage knows which branch to take.
 
@@ -84,15 +84,15 @@ That sounds restrictive at first, but it's actually liberating:
 
 When you trigger a workflow, AutoSage:
 
-1. **Records the run** — creates a *Workflow Run* with status `queued`, plus one *Node Run* per node in the graph.
+1. **Records the run** — creates a _Workflow Run_ with status `queued`, plus one _Node Run_ per node in the graph.
 2. **Builds the execution plan** — walks the graph from the trigger and figures out the order, including any parallel branches.
 3. **Runs each node in order** — Action nodes ship the script to the right server and execute it; Decision nodes evaluate their condition based on upstream outputs and prune the unused branch.
 4. **Streams logs in real time** — stdout and stderr from each script are pushed to your browser as they happen.
 5. **Marks the run** — when the graph is done (or a node fails irrecoverably), the run finishes with status `success`, `failed`, or `cancelled`.
 
 You can watch all of this from the Run history view.
-<!-- TODO: link "Run history" to its deep-dive page once it exists -->
 
+<!-- TODO: link "Run history" to its deep-dive page once it exists -->
 
 ## What you'll need
 
@@ -109,8 +109,6 @@ The credential and server live in the Vault precisely so you don't have to enter
 ## Where workflows fit
 
 Workflows are the entry point for almost everything AutoSage does. The dashboard, the run history, the Vault, the script editor — they all exist to support building, running, and debugging workflows.
-
-<!-- TODO: replace with a diagram showing how the Workflows page connects to Vault, Script editor, and Run history -->
 
 A workflow is also the **unit of sharing and reuse**: you can duplicate a workflow, fork an execution template, or run the same workflow against different servers by swapping the Action node's target.
 
