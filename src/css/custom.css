@@ -58,6 +58,47 @@
   border-right: none !important;
 }
 
+/* Sidebar Scrollbar (hidden by default, fades in on hover) */
+.theme-doc-sidebar-menu,
+.theme-doc-sidebar-container .menu {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar,
+.theme-doc-sidebar-container .menu::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar-track,
+.theme-doc-sidebar-container .menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar-thumb,
+.theme-doc-sidebar-container .menu::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+/* On sidebar hover: thumb fades in. Use a tone slightly darker than body. */
+.theme-doc-sidebar-container:hover .menu {
+  scrollbar-color: var(--ifm-color-emphasis-200) transparent;
+}
+
+.theme-doc-sidebar-container:hover .theme-doc-sidebar-menu::-webkit-scrollbar-thumb,
+.theme-doc-sidebar-container:hover .menu::-webkit-scrollbar-thumb {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.theme-doc-sidebar-container:hover .theme-doc-sidebar-menu::-webkit-scrollbar-thumb:hover,
+.theme-doc-sidebar-container:hover .menu::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
 /* GitHub Navbar Icon */
 .header-github-link {
   padding: 0 12px;
@@ -193,6 +234,9 @@
     0 8px 24px rgba(0, 0, 0, 0.5);
   --search-local-hit-background: var(--ifm-color-emphasis-200);
   --search-local-hit-color: var(--ifm-font-color-base);
+
+  /* Dim the warning/caution admonition in dark mode (Infima default is too bright). */
+  --ifm-color-warning-contrast-background: rgba(234, 178, 8, 0.112) !important;
 }
 
 /* ===== Search bar ===== */
