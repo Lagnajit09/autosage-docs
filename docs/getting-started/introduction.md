@@ -27,7 +27,7 @@ If you've used tools like n8n or Zapier, the workflow concept will feel familiar
 
 A **workflow** in AutoSage is a graph of three node types:
 
-- **Trigger nodes** start a workflow. The trigger types are _Manual_ (run from the UI), _HTTP Webhook_ (run when a URL is hit), and _Cron Scheduler_ (run on a recurring schedule).
+- **Trigger nodes** start a workflow. The trigger types are _Manual_ (run from the UI), _HTTP Webhook_ (run when a URL is hit), and _Job Scheduler_ (run on a recurring schedule).
 - **Action nodes** do the work. The action types are _Script_ (run a Python/PowerShell/Shell script on a server) and _Email_ (send a notification).
 - **Decision nodes** branch the flow based on a true/false condition — useful for "only continue if the previous step succeeded" patterns.
 

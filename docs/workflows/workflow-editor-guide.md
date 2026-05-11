@@ -45,7 +45,7 @@ sources={{
 
 It groups nodes into the three categories you'll work with:
 
-- **Trigger** — the starting point of a workflow. Pick one of _Manual_, _HTTP Webhook_, or _Cron Scheduler_. Every workflow needs exactly one.
+- **Trigger** — the starting point of a workflow. Pick one of _Manual_, _HTTP Webhook_, or _Job Scheduler_. Every workflow needs exactly one.
 - **Action** — the steps that do work: _Script_ (run code on a server) and _Email_ (send a notification).
 - **Decision** — branches the flow on a true/false condition.
 

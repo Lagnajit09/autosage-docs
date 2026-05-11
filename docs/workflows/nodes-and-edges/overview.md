@@ -33,7 +33,7 @@ A Trigger decides _how_ the workflow gets kicked off — whether you press a but
 
 - **Manual** — run on demand by clicking _Run_ from the dashboard.
 - **HTTP Webhook** — fire the workflow from any system that can make an HTTP call.
-- **Cron Scheduler** — run on a recurring schedule defined by a cron expression.
+- **Job Scheduler** — run on a recurring schedule defined by a cron expression.
 
 See [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) for how to configure each one.
 
@@ -77,6 +77,6 @@ AutoSage has **three** edge types. The type is set automatically based on which 
 
 ## What's next
 
-- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Cron Scheduler.
+- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Job Scheduler.
 - [Action Nodes](/workflows/nodes-and-edges/action-nodes) — Script and Email.
 - [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) — branching on true/false conditions.

@@ -187,6 +187,10 @@ Once the workflow is saved, the Job Scheduler node's configuration sidebar shows
 
 That's the whole setup. With a valid expression and the toggle on, AutoSage will fire the workflow on the cadence you defined — no further action needed.
 
+:::note Schedules run in UTC
+All cron expressions are evaluated in **UTC**. If you want a workflow to run at 2:00 AM in your local timezone, convert that time to UTC before writing the expression. For example, 2:00 AM IST (UTC+5:30) is `30 20 * * *` in UTC, not `0 2 * * *`.
+:::
+
 ### Runtime parameters and defaults
 
 A scheduled run has no caller to provide runtime parameter values, so AutoSage uses **default values** for them instead.
@@ -196,8 +200,8 @@ When you configure a parameter on any node, you can set a **default value** alon
 1. If a value is provided when the workflow is triggered (e.g., via the HTTP Webhook body), AutoSage uses that.
 2. Otherwise, AutoSage falls back to the **default value** from the parameter's configuration.
 
-For Cron-triggered runs there's never a caller-supplied value, so the default is always what gets used. **Make sure every parameter your workflow depends on has a sensible default**, or the dependent node will fail at run time the same way it would for a webhook trigger sent with a missing field.
+For scheduled runs there's never a caller-supplied value, so the default is always what gets used. **Make sure every parameter your workflow depends on has a sensible default**, or the dependent node will fail at run time the same way it would for a webhook trigger sent with a missing field.
 
 ### History and logs
 
-Cron-triggered runs show up in the AutoSage console alongside manual and webhook runs. Open the workflow's run history to see each scheduled execution, its status, duration, per-node results, and full logs.
+Scheduled runs show up in the AutoSage console alongside manual and webhook runs. Open the workflow's run history to see each scheduled execution, its status, duration, per-node results, and full logs.

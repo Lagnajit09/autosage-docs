@@ -48,7 +48,7 @@ The **Workflows** page lists every workflow in your account. From here you can c
 
 The workflow editor is the canvas where you assemble a workflow by dragging and connecting nodes. There are three node types:
 
-- **Trigger** — *Manual*, *HTTP Webhook*, or *Cron Scheduler*. Every workflow starts with one.
+- **Trigger** — *Manual*, *HTTP Webhook*, or *Job Scheduler*. Every workflow starts with one.
 - **Action** — *Script* (run a Python/PowerShell/Shell script on a server) or *Email* (send a notification).
 - **Decision** — branches the flow on a true/false condition.
 

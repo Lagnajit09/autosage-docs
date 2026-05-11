@@ -42,7 +42,7 @@ There are three kinds of nodes, and every workflow uses them in roughly the same
 
 | Node type    | What it does                                         | Examples                                                                                                                                                    |
 | ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Trigger**  | Starts the workflow. Every workflow has exactly one. | _Manual_ — run it yourself from the dashboard.<br/>_HTTP Webhook_ — fire it from an external system.<br/>_Cron Scheduler_ — run it on a recurring schedule. |
+| **Trigger**  | Starts the workflow. Every workflow has exactly one. | _Manual_ — run it yourself from the dashboard.<br/>_HTTP Webhook_ — fire it from an external system.<br/>_Job Scheduler_ — run it on a recurring schedule. |
 | **Action**   | Does the work. A workflow can have many.             | _Script_ — run a Python, PowerShell, or Shell script on a server.<br/>_Email_ — send a notification.                                                        |
 | **Decision** | Branches the flow on a true/false condition.         | "Continue only if the previous step exited with code 0."<br/>"Run cleanup branch if disk usage > 90%."                                                      |
 
@@ -115,6 +115,6 @@ A workflow is also the **unit of sharing and reuse**: you can duplicate a workfl
 ## What's next
 
 - [Nodes & Edges — Overview](/workflows/nodes-and-edges/overview) — the building blocks in detail.
-- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Cron.
+- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Job Scheduler.
 - [Action Nodes](/workflows/nodes-and-edges/action-nodes) — Script and Email.
 - [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) — branching on true/false.
