@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Trigger Nodes
-description: A Trigger node is the starting point of a workflow. AutoSage offers three types — Manual, HTTP Webhook, and Cron Scheduler — each suited to a different way of kicking off a run.
+description: A Trigger node is the starting point of a workflow. AutoSage offers three types — Manual, HTTP Webhook, and Job Scheduler — each suited to a different way of kicking off a run.
 ---
 
 import ThemedImage from '@theme/ThemedImage';
@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Trigger Nodes
 
 <ThemedImage
-alt="The three Trigger node types in AutoSage: Manual, HTTP Webhook, and Cron Scheduler"
+alt="The three Trigger node types in AutoSage: Manual, HTTP Webhook, and Job Scheduler"
 sources={{
     light: useBaseUrl('/img/screenshots/trigger-nodes-light.svg'),
     dark: useBaseUrl('/img/screenshots/trigger-nodes-dark.svg'),
@@ -27,12 +27,12 @@ The choice of trigger comes down to one question: **what causes a run to start?*
 
 - A person clicking a button → **Manual**.
 - An external system calling a URL → **HTTP Webhook**.
-- A clock or schedule → **Cron Scheduler**.
+- A clock or schedule → **Job Scheduler**.
 
 You pick exactly one per workflow. If you need the same set of steps to be triggered in more than one way, duplicate the workflow and change just the Trigger node — the Action and Decision nodes downstream stay identical.
 
 :::note Save the workflow first
-**HTTP Webhook** and **Cron Scheduler** triggers are inactive until the workflow has been saved with a name. AutoSage needs a saved workflow to attach a webhook URL or schedule to — no workflow, no trigger. Save first, then configure.
+**HTTP Webhook** and **Job Scheduler** triggers are inactive until the workflow has been saved with a name. AutoSage needs a saved workflow to attach a webhook URL or schedule to — no workflow, no trigger. Save first, then configure.
 
 The **Manual** trigger has no such requirement.
 :::
@@ -90,10 +90,10 @@ The configuration sidebar also has an **enable/disable toggle**. Disabling the t
 
 Use any HTTP client (curl, Postman, your CI script) to POST to the trigger URL. Two headers are **required**, with **exact casing**:
 
-| Header              | Value                                                                                              |
-| ------------------- | -------------------------------------------------------------------------------------------------- |
-| `X-Trigger-Secret`  | The secret key you saved when generating the URL.                                                  |
-| `Idempotency-Key`   | A unique string per request. AutoSage uses it to deduplicate retries of the same logical trigger.  |
+| Header             | Value                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| `X-Trigger-Secret` | The secret key you saved when generating the URL.                                                 |
+| `Idempotency-Key`  | A unique string per request. AutoSage uses it to deduplicate retries of the same logical trigger. |
 
 If your workflow needs **runtime parameters** (values that vary per run — a target environment, a release tag, a user ID), send them in the request body under a top-level `inputs` object, keyed by **parameter ID**:
 
@@ -160,13 +160,13 @@ What it **doesn't** give you is the full stdout/stderr stream from each node. Fo
 Full execution logs are stored in a Google Cloud Storage bucket. Streaming them through the public polling URL would mean serving GCS contents to anyone holding the trigger secret, which we'd rather not do — so log access is gated through the authenticated portal frontend instead.
 :::
 
-## Cron Scheduler
+## Job Scheduler
 
 <ThemedImage
-alt="A Cron Scheduler trigger node selected on the canvas, with the configuration sidebar showing the cron expression input and the enable/disable toggle"
+alt="A Job Scheduler trigger node selected on the canvas, with the configuration sidebar showing the cron expression input and the enable/disable toggle"
 sources={{
-    light: useBaseUrl('/img/screenshots/cron-scheduler-trigger-light.svg'),
-    dark: useBaseUrl('/img/screenshots/cron-scheduler-trigger-dark.svg'),
+    light: useBaseUrl('/img/screenshots/job-scheduler-trigger-light.svg'),
+    dark: useBaseUrl('/img/screenshots/job-scheduler-trigger-dark.svg'),
   }}
 />
 
@@ -180,7 +180,7 @@ Best for:
 
 ### Setting the schedule
 
-Once the workflow is saved, the Cron Scheduler node's configuration sidebar shows two controls:
+Once the workflow is saved, the Job Scheduler node's configuration sidebar shows two controls:
 
 - A **cron expression** input — enter the expression that describes when the workflow should run (for example, `0 2 * * *` for every day at 2:00 AM).
 - An **enable/disable toggle** — turn the schedule on once you're ready. Disabled schedules are kept on the workflow but won't fire.
