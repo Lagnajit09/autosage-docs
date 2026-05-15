@@ -156,9 +156,7 @@ Runtime parameters are values the script reads from **outside the script body** 
 
 This is the mechanism that ties a workflow's nodes together into something more than a sequence of isolated steps.
 
-<!-- TODO: link to the dedicated Parameters page once it exists -->
-
-For the full reference — parameter types, how to reference upstream outputs, default value resolution — see the **Parameters** page.
+For the full reference — parameter types, how to reference upstream outputs, default value resolution, and the `{{param_name}}` syntax for reading parameters inside a script — see [Parameters](/workflows/nodes-and-edges/parameters).
 
 ## Email Node
 
@@ -231,6 +229,4 @@ The raw content is **appended to the body only** — the subject line is never m
 
 A typical pattern is to write a short human-readable lead in the body ("Health check failed on `web-02`. Full output below:") and let the raw content fill in underneath.
 
-<!-- TODO: link to the dedicated Parameters page once it exists -->
-
-For the full reference on parameter wiring — including how the same machinery applies to Script nodes — see the **Parameters** page.
+For the full reference on parameter wiring — including how the same machinery applies to Script nodes — see [Parameters](/workflows/nodes-and-edges/parameters).

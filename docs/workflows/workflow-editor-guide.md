@@ -112,21 +112,9 @@ sources={{
 
 ### Import workflow
 
-Bring an existing workflow into the editor. Two ways to provide the workflow definition:
+Opens the **Import workflow** dialog, which lets you bring an existing workflow into the editor by uploading a JSON file or pasting JSON directly.
 
-- **Upload a JSON file** — pick an exported workflow file from your computer.
-- **Paste JSON** — paste the workflow JSON directly into a text box.
-
-Either way, AutoSage parses the JSON and reconstructs the nodes and edges on the canvas. Useful for sharing workflows between accounts, importing templates, or restoring from a backup.
-
-:::caution Import only restores the design, not the configuration
-A workflow JSON stores the **structure** — nodes, edges, and references by ID — but not the underlying resources those references point to. After importing, AutoSage will:
-
-- Recreate every node and edge on the canvas.
-- **Leave configuration fields blank** wherever the referenced ID (a Vault entry, a credential, a saved script) doesn't exist in your account.
-
-You'll need to **manually re-link** these on each affected node before the workflow can run. This typically means picking the right server, credential, or script from your own Vault — the labels and connections are preserved, but the bindings have to be set again.
-:::
+For the full details — accepted JSON shape, both export options, and the caveat about what an import actually restores — see [Import and Export](/workflows/import-and-export).
 
 ### Vault
 
