@@ -77,7 +77,7 @@ The list of available files in **Upload** and **Select existing** is **filtered 
 
 Where the script will run (when Execution mode is Remote).
 
-- **Server** — pick a server from your [Vault](/workflows/workflow-editor-guide#vault). Manual typing of host/IP is **not allowed** — the server must already be saved.
+- **Server** — pick a server from your [Vault](/key-vault). Manual typing of host/IP is **not allowed** — the server must already be saved.
 - **Credential** — pick a credential from the Vault. Also not type-able for the same reason.
 
 :::tip Save the server and credential first
@@ -198,7 +198,7 @@ This is where you point the node at **your** SMTP server.
 - **Port** — the port AutoSage connects on. Two common cases:
   - **Secure connection checkbox unchecked** → port **587** (STARTTLS, the default for most modern SMTP servers).
   - **Secure connection checkbox checked** → port **465** (SMTPS, implicit TLS from the start of the connection).
-- **Credentials** — pick the SMTP credential from your [Vault](/workflows/workflow-editor-guide#vault). Manual entry isn't supported here either; save the credential to the Vault first, then select it.
+- **Credentials** — pick the SMTP credential from your [Vault](/key-vault). Manual entry isn't supported here either; save the credential to the Vault first, then select it.
 
 :::tip Which port should I pick?
 If you're unsure, leave **Secure connection unchecked** (port 587). Most modern providers prefer STARTTLS on 587. Only switch to 465 if your provider's docs specifically say to use SMTPS.

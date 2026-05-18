@@ -43,7 +43,7 @@ The steps that **do the work**. A workflow can have as many Action nodes as you 
 
 Each Action node performs one concrete task against exactly one target. AutoSage offers two types:
 
-- **Script** — run a Python, PowerShell, or Shell script on a server in your Vault.
+- **Script** — run a Python, PowerShell, or Shell script on a server in your [Vault](/key-vault).
 - **Email** — send a notification email, typically to report status or alert on failure.
 
 See [Action Nodes](/workflows/nodes-and-edges/action-nodes) for every Action type and its configuration fields.

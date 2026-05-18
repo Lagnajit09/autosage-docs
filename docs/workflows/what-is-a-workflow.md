@@ -20,7 +20,7 @@ Server work tends to be **repetitive, multi-step, and brittle**. A typical task 
 A workflow gives you:
 
 - **A visual mental model** — you can _see_ what happens when, instead of reading through a 200-line bash script.
-- **Reusable building blocks** — define a server and its credentials once in the Vault, reference them from any workflow.
+- **Reusable building blocks** — define a server and its credentials once in the [Vault](/key-vault), reference them from any workflow.
 
 - **Multiple ways to trigger** — run on demand, on a schedule, or from an external system (CI, GitHub Actions, monitoring) via webhook.
 - **Live observability** — every run streams logs back to your browser as it happens, and the full output is preserved.
@@ -98,9 +98,7 @@ You can watch all of this from the Run history view.
 
 Before you build a workflow, you'll want at least:
 
-- **A server registered in the Vault** — the target for any Action node that runs a script.
-<!-- TODO: link "Vault" to its deep-dive page once it exists -->
-
+- **A server registered in the [Vault](/key-vault)** — the target for any Action node that runs a script.
 - **Credentials linked to that server** — so the workflow can authenticate. Saved once, reused across every workflow.
 - **A script** — written in Python, PowerShell, or Shell, in the built-in [Script editor](/quick-tour#script-editor). Or paste an existing one.
 

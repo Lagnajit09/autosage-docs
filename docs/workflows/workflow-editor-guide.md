@@ -118,11 +118,11 @@ For the full details — accepted JSON shape, both export options, and the cavea
 
 ### Vault
 
-Opens the **Vault** — your central store for **servers** and **credentials** that your workflows reference. From here you can add a new server, save a credential, or link an existing credential to a server so it auto-fills the next time you pick that server in an Action node.
+Opens the **[Vault](/key-vault)** — your central store for **servers** and **credentials** that your workflows reference. From here you can add a new server, save a credential, or link an existing credential to a server so it auto-fills the next time you pick that server in an Action node.
 
 The Vault opens in the same browser tab; close it to return to the editor.
 
-<!-- TODO: link "Vault" to its deep-dive page once it exists -->
+For everything the Vault can do — creating multiple vaults, saving credentials, registering servers, and the auto-select behavior — see the dedicated [Key-Vault](/key-vault) page.
 
 ### Profile
 

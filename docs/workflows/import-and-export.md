@@ -41,7 +41,7 @@ A workflow JSON stores the **structure** — nodes, edges, and references by ID 
 - Recreate every node and edge on the canvas.
 - **Leave configuration fields blank** wherever the referenced ID (a Vault entry, a credential, a saved script) doesn't exist in your account.
 
-You'll need to **manually re-link** these on each affected node before the workflow can run. This typically means picking the right server, credential, or script from your own Vault — the labels and connections are preserved, but the bindings have to be set again.
+You'll need to **manually re-link** these on each affected node before the workflow can run. This typically means picking the right server, credential, or script from your own [Vault](/key-vault) — the labels and connections are preserved, but the bindings have to be set again.
 :::
 
 ## Exporting a workflow
