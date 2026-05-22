@@ -50,12 +50,12 @@ Behind the scenes, AutoSage also assigns each parameter an **auto-generated ID**
 
 ## Parameter types
 
-| Type         | What it holds                            | Notes                                                                                              |
-| ------------ | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **String**   | A text value.                            | The most common type. Substituted into scripts as-is.                                              |
-| **Number**   | A numeric value (integer or decimal).    | Substituted as a bare number — `42`, not `"42"`.                                                   |
-| **Boolean**  | `true` or `false`.                       | Substituted as the literal `true` or `false`.                                                      |
-| **Password** | A secret string (token, key, password).  | **Never substituted into the script source.** Injected as an environment variable instead.         |
+| Type         | What it holds                           | Notes                                                                                      |
+| ------------ | --------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **String**   | A text value.                           | The most common type. Substituted into scripts as-is.                                      |
+| **Number**   | A numeric value (integer or decimal).   | Substituted as a bare number — `42`, not `"42"`.                                           |
+| **Boolean**  | `true` or `false`.                      | Substituted as the literal `true` or `false`.                                              |
+| **Password** | A secret string (token, key, password). | **Never substituted into the script source.** Injected as an environment variable instead. |
 
 ### Why Password is different
 
@@ -152,6 +152,6 @@ A quick summary of where parameters show up across the other pages in this secti
 
 - **[HTTP Webhook triggers](/workflows/nodes-and-edges/trigger-nodes#http-webhook)** — the request body's `inputs` object is the caller-supplied source. Each key in `inputs` is a **parameter ID**, not a parameter name. A caller-supplied value overrides whatever Source the parameter was configured with.
 - **[Job Scheduler triggers](/workflows/nodes-and-edges/trigger-nodes#job-scheduler)** — no caller, so every parameter resolves against its configured Source: Manual params use the Default Value, Output params pull from the upstream node.
-- **[Script nodes](/workflows/nodes-and-edges/action-nodes#script)** — declare parameters in the configuration sidebar; reference them with `{{param_name}}` inside the script (or from `$env:…` for Passwords).
-- **[Email nodes](/workflows/nodes-and-edges/action-nodes#email)** — parameters are **not** inlined into the subject or body with `{{…}}`. Instead, a parameter configured on the Email node appends its value (or the upstream node's full output, if `input_as_text (Raw)` is selected) to the email body automatically.
+- **[Script nodes](/workflows/nodes-and-edges/action-nodes#script-node)** — declare parameters in the configuration sidebar; reference them with `{{param_name}}` inside the script (or from `$env:…` for Passwords).
+- **[Email nodes](/workflows/nodes-and-edges/action-nodes#email-node)** — parameters are **not** inlined into the subject or body with `{{…}}`. Instead, a parameter configured on the Email node appends its value (or the upstream node's full output, if `input_as_text (Raw)` is selected) to the email body automatically.
 - **[Decision nodes](/workflows/nodes-and-edges/decision-nodes)** — don't declare parameters. Reference upstream outputs directly through the Field/Value picker, which has the same Manual/Output shape.

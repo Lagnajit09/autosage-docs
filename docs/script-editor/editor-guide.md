@@ -9,10 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 # Editor Guide
 
 <ThemedImage
-  alt="Script editor"
-  sources={{
-    light: useBaseUrl('/img/screenshots/script-editor-light.png'),
-    dark: useBaseUrl('/img/screenshots/script-editor-dark.png'),
+alt="Script editor"
+sources={{
+    light: useBaseUrl('/img/screenshots/script-editor-guide-light.svg'),
+    dark: useBaseUrl('/img/screenshots/script-editor-guide-dark.svg'),
   }}
 />
 

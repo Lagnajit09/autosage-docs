@@ -14,8 +14,8 @@ Every AutoSage workflow is built from two things: **nodes** — the steps that d
 <ThemedImage
 alt="Anatomy of a workflow: a Trigger node connecting to an Action node, then a Decision node branching into two further Action nodes"
 sources={{
-    light: useBaseUrl('/img/diagrams/workflow-svg-light.svg'),
-    dark: useBaseUrl('/img/diagrams/workflow-svg-dark.svg'),
+    light: useBaseUrl('/img/screenshots/workflow-svg-light.svg'),
+    dark: useBaseUrl('/img/screenshots/workflow-svg-dark.svg'),
   }}
 />
 
@@ -62,11 +62,11 @@ An edge is a directed line between two nodes that says: **"after this finishes, 
 
 AutoSage has **three** edge types. The type is set automatically based on which node the edge leaves from — you don't pick it manually.
 
-| Edge type        | Where it appears                                  | What it means                                                                                          |
-| ---------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **Default Edge** | Leaves any Trigger or Action node.                | Standard "next step" connection. After the upstream node finishes, the downstream node runs.           |
-| **True Edge**    | Leaves a Decision node from its `true` output.    | Followed when the Decision's condition evaluates to **true**. Drawn in **green** on the canvas.        |
-| **False Edge**   | Leaves a Decision node from its `false` output.   | Followed when the Decision's condition evaluates to **false**. Drawn in **red** on the canvas.        |
+| Edge type        | Where it appears                                | What it means                                                                                   |
+| ---------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Default Edge** | Leaves any Trigger or Action node.              | Standard "next step" connection. After the upstream node finishes, the downstream node runs.    |
+| **True Edge**    | Leaves a Decision node from its `true` output.  | Followed when the Decision's condition evaluates to **true**. Drawn in **green** on the canvas. |
+| **False Edge**   | Leaves a Decision node from its `false` output. | Followed when the Decision's condition evaluates to **false**. Drawn in **red** on the canvas.  |
 
 ### A few rules edges follow
 

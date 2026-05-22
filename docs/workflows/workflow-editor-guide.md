@@ -35,13 +35,13 @@ The screen is divided into a few regions:
 
 The **nodes menu** sits on the left side of the editor. It's the source palette for everything you can drop onto the canvas.
 
-<ThemedImage
+<!-- <ThemedImage
 alt="The left-sidebar nodes menu, showing the Trigger, Action, and Decision categories"
 sources={{
     light: useBaseUrl('/img/screenshots/editor-nodes-menu-light.svg'),
     dark: useBaseUrl('/img/screenshots/editor-nodes-menu-dark.svg'),
   }}
-/>
+/> -->
 
 It groups nodes into the three categories you'll work with:
 
@@ -59,13 +59,13 @@ For a deeper look at each node type, see [Nodes & Edges](/workflows/nodes-and-ed
 
 The **canvas** is the central area where you assemble your workflow. It's an infinite, pannable surface — drag with the mouse to scroll around, scroll-wheel to zoom.
 
-<ThemedImage
+<!-- <ThemedImage
 alt="The workflow canvas with several nodes connected by edges"
 sources={{
     light: useBaseUrl('/img/screenshots/editor-canvas-light.svg'),
     dark: useBaseUrl('/img/screenshots/editor-canvas-dark.svg'),
   }}
-/>
+/> -->
 
 What you can do on the canvas:
 
@@ -82,13 +82,13 @@ What you can do on the canvas:
 
 The right sidebar is **context-sensitive**: it stays empty until you click something on the canvas, and then it shows the configuration form for whatever you selected.
 
-<ThemedImage
+<!-- <ThemedImage
 alt="The right-sidebar configuration panel open, showing fields for the selected node"
 sources={{
     light: useBaseUrl('/img/screenshots/editor-config-sidebar-light.svg'),
     dark: useBaseUrl('/img/screenshots/editor-config-sidebar-dark.svg'),
   }}
-/>
+/> -->
 
 - **Click a node** — the form for that node type opens. The fields depend on the node: a Script Action shows server, language, and script; an HTTP Webhook trigger shows the trigger URL and secret; and so on.
 - **Click an edge** — the form for that edge opens. Useful for edges out of a Decision node, where you set the `true`/`false` label.
@@ -102,13 +102,13 @@ The full field reference for each type lives in the [Nodes & Edges](/workflows/n
 
 The **toolbar** sits in the top-right corner of the editor. It's a single dock of buttons, in this order:
 
-<ThemedImage
+<!-- <ThemedImage
 alt="The top-right toolbar with Import, Vault, Profile, theme toggle, and the more menu"
 sources={{
     light: useBaseUrl('/img/screenshots/editor-toolbar-light.svg'),
     dark: useBaseUrl('/img/screenshots/editor-toolbar-dark.svg'),
   }}
-/>
+/> -->
 
 ### Import workflow
 
@@ -147,13 +147,13 @@ A dropdown that holds less-frequent editor actions:
 
 In the **bottom-right corner** there's a floating button for **Autobot**, the AutoSage AI workflow generator.
 
-<ThemedImage
+<!-- <ThemedImage
 alt="The Autobot floating button in the bottom-right of the editor"
 sources={{
     light: useBaseUrl('/img/screenshots/editor-autobot-button-light.svg'),
     dark: useBaseUrl('/img/screenshots/editor-autobot-button-dark.svg'),
   }}
-/>
+/> -->
 
 Click it to open a modal where you can describe what you want a workflow to do, and Autobot drafts the nodes and edges for you.
 

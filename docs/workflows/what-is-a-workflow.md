@@ -33,18 +33,18 @@ A workflow is made of two things: **nodes** (the steps) and **edges** (the conne
 <ThemedImage
 alt="Anatomy of a workflow: a Trigger node connecting to an Action node, then a Decision node branching into two further Action nodes"
 sources={{
-    light: useBaseUrl('/img/diagrams/workflow-svg-light.svg'),
-    dark: useBaseUrl('/img/diagrams/workflow-svg-dark.svg'),
+    light: useBaseUrl('/img/screenshots/workflow-svg-light.svg'),
+    dark: useBaseUrl('/img/screenshots/workflow-svg-dark.svg'),
   }}
 />
 
 There are three kinds of nodes, and every workflow uses them in roughly the same shape:
 
-| Node type    | What it does                                         | Examples                                                                                                                                                    |
-| ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Node type    | What it does                                         | Examples                                                                                                                                                   |
+| ------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Trigger**  | Starts the workflow. Every workflow has exactly one. | _Manual_ — run it yourself from the dashboard.<br/>_HTTP Webhook_ — fire it from an external system.<br/>_Job Scheduler_ — run it on a recurring schedule. |
-| **Action**   | Does the work. A workflow can have many.             | _Script_ — run a Python, PowerShell, or Shell script on a server.<br/>_Email_ — send a notification.                                                        |
-| **Decision** | Branches the flow on a true/false condition.         | "Continue only if the previous step exited with code 0."<br/>"Run cleanup branch if disk usage > 90%."                                                      |
+| **Action**   | Does the work. A workflow can have many.             | _Script_ — run a Python, PowerShell, or Shell script on a server.<br/>_Email_ — send a notification.                                                       |
+| **Decision** | Branches the flow on a true/false condition.         | "Continue only if the previous step exited with code 0."<br/>"Run cleanup branch if disk usage > 90%."                                                     |
 
 Nodes are connected by **edges** — directed lines that say "after this node finishes, run that one next." Edges out of a Decision node carry a label (`true` or `false`) so AutoSage knows which branch to take.
 
