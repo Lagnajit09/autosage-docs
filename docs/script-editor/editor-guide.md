@@ -57,7 +57,7 @@ Creating and executing **Python** scripts will be supported in an upcoming versi
 When the new file is created, AutoSage pre-fills it with:
 
 - A couple of default code lines to get you started.
-- Instructions on how to handle [**parameters**](/workflows/nodes-and-edges/parameters).
+- Instructions on how to handle [**parameters**](/docs/workflows/nodes-and-edges/parameters).
 
 These are **commented lines** — feel free to ignore them and start writing your script directly, or use them as a reference.
 
@@ -67,7 +67,7 @@ AutoSage doesn't auto-save. **Saving the script is your responsibility** — rem
 
 ### Using parameters in your script
 
-Scripts in AutoSage almost always need **runtime values** — a service name, a version tag, a credential — supplied by the workflow that runs them. These are called [**parameters**](/workflows/nodes-and-edges/parameters), and they're declared on the Action node that runs the script.
+Scripts in AutoSage almost always need **runtime values** — a service name, a version tag, a credential — supplied by the workflow that runs them. These are called [**parameters**](/docs/workflows/nodes-and-edges/parameters), and they're declared on the Action node that runs the script.
 
 The starter comments in a newly created file already include a brief reminder of the syntax. Here are the basics:
 
@@ -102,7 +102,7 @@ PWD="$DB_PASSWORD"
 
 This keeps the secret out of the executed script text and out of run logs (unless you explicitly print it).
 
-For the full picture — parameter types, value sources, scheduled-run behavior — see the [Parameters](/workflows/nodes-and-edges/parameters) page.
+For the full picture — parameter types, value sources, scheduled-run behavior — see the [Parameters](/docs/workflows/nodes-and-edges/parameters) page.
 
 ## Upload a script
 

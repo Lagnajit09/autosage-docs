@@ -33,7 +33,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          routeBasePath: "/",
+          routeBasePath: "/docs",
           editUrl: "https://github.com/Lagnajit09/autosage-docs/tree/main/",
         },
         blog: false,
@@ -41,6 +41,19 @@ const config: Config = {
           customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "tutorials",
+        path: "tutorials",
+        routeBasePath: "/tutorials",
+        sidebarPath: "./sidebarsTutorials.ts",
+        editUrl: "https://github.com/Lagnajit09/autosage-docs/tree/main/",
+      },
     ],
   ],
 
@@ -52,7 +65,7 @@ const config: Config = {
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
-        docsRouteBasePath: "/",
+        docsRouteBasePath: ["/docs", "/tutorials"],
         language: ["en"],
         highlightSearchTermsOnTargetPage: true,
         searchResultLimits: 8,
@@ -74,6 +87,13 @@ const config: Config = {
           sidebarId: "docsSidebar",
           position: "left",
           label: "Docs",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "tutorialsSidebar",
+          docsPluginId: "tutorials",
+          position: "left",
+          label: "Tutorials",
         },
         {
           type: "search",

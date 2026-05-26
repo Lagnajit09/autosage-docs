@@ -19,7 +19,7 @@ If you've used tools like n8n or Zapier, the workflow concept will feel familiar
 
 - **Build visual workflows** by connecting Trigger, Action, and Decision nodes on a canvas.
 - **Write scripts in three languages** — Python, PowerShell, and Shell — using the built-in script editor.
-- **Manage servers and credentials** in a central [Vault](/key-vault), and link credentials to servers so they auto-fill when selected.
+- **Manage servers and credentials** in a central [Vault](/docs/key-vault), and link credentials to servers so they auto-fill when selected.
 - **Run workflows on demand** from the dashboard, **on a schedule** with a cron expression, or **from external systems** via authenticated HTTP webhooks.
 - **Watch executions live** — every run streams stdout and stderr back to your browser as it happens, with full logs preserved for later review.
 
@@ -45,7 +45,7 @@ Already have an account? Sign in at **[autosagex.web.app/signin](https://autosag
 
 ## What's next
 
-- [Quick Tour](/quick-tour) — a five-minute walkthrough of every part of the app.
+- [Quick Tour](/docs/quick-tour) — a five-minute walkthrough of every part of the app.
 <!-- TODO: add "Build your first workflow" tutorial link once that page exists -->
 
 ## Coming soon: Autobot

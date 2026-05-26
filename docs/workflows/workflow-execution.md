@@ -18,7 +18,7 @@ Every workflow has its own dedicated **execution page** — a focused view for r
 You don't navigate there by hand. From the dashboard (or anywhere a workflow is listed), click the **Run** button on the workflow. AutoSage opens the execution page for that workflow in the same browser tab.
 
 :::info One execution page per runnable
-This pattern is consistent across AutoSage. The [Script Editor has its own single-script terminal](/script-editor/script-execution), and the upcoming Ansible Engine will have its own execution page too. Each is tuned to what the underlying runnable actually does — workflows have multi-node graphs, so the workflow execution page is built around that.
+This pattern is consistent across AutoSage. The [Script Editor has its own single-script terminal](/docs/script-editor/script-execution), and the upcoming Ansible Engine will have its own execution page too. Each is tuned to what the underlying runnable actually does — workflows have multi-node graphs, so the workflow execution page is built around that.
 :::
 
 ## Page layout
@@ -49,7 +49,7 @@ The Live Terminal, History, and Response views share a tab strip so you can swit
 
 Before you start a run, the **Configuration panel** is where you fill in everything the workflow needs to know at runtime.
 
-- **Parameters** — every `{{param_name}}` token declared on the workflow's nodes shows up here as an input field. Fill them in to substitute values into scripts and other configurable fields at execution time. For the full mechanics of how parameters are declared and substituted, see [Parameters](/workflows/nodes-and-edges/parameters).
+- **Parameters** — every `{{param_name}}` token declared on the workflow's nodes shows up here as an input field. Fill them in to substitute values into scripts and other configurable fields at execution time. For the full mechanics of how parameters are declared and substituted, see [Parameters](/docs/workflows/nodes-and-edges/parameters).
 - **Completion email** — an optional toggle. When enabled, AutoSage sends a summary email to the **signed-in user's email address** as soon as the run finishes, regardless of whether it succeeded or failed. The email goes to your account email — there's no separate recipient field.
 
 Once the panel is filled in, click **Run** to start execution. The Nodes panel and Live Terminal begin updating immediately.
@@ -70,9 +70,9 @@ The **Nodes panel** lists every node in the workflow and acts as a live map of t
 | **Running** | The node is currently executing on its target server.                                                  |
 | **Success** | The node finished without error.                                                                       |
 | **Failure** | The node returned a non-zero exit or otherwise errored out.                                            |
-| **Skipped** | A Decision node pruned this branch, so the node was never executed. See [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) for the branch-pruning rules. |
+| **Skipped** | A Decision node pruned this branch, so the node was never executed. See [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) for the branch-pruning rules. |
 
-The panel mirrors the structure of the workflow graph, so you can correlate what you see here with what you drew in the [editor canvas](/workflows/workflow-editor-guide#workflow-canvas). It's the fastest way to answer "where is the run right now?" without scrolling logs.
+The panel mirrors the structure of the workflow graph, so you can correlate what you see here with what you drew in the [editor canvas](/docs/workflows/workflow-editor-guide#workflow-canvas). It's the fastest way to answer "where is the run right now?" without scrolling logs.
 
 ---
 
@@ -121,6 +121,6 @@ Use Response when you want to compare runs at a glance — for example, "which r
 
 ## What's next
 
-- [Parameters](/workflows/nodes-and-edges/parameters) — declare the inputs that show up in the Configuration panel.
-- [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) — understand when a node ends up `Skipped` in the Nodes panel.
-- [Import and Export](/workflows/import-and-export) — move a workflow (and its node graph) between accounts before running it elsewhere.
+- [Parameters](/docs/workflows/nodes-and-edges/parameters) — declare the inputs that show up in the Configuration panel.
+- [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) — understand when a node ends up `Skipped` in the Nodes panel.
+- [Import and Export](/docs/workflows/import-and-export) — move a workflow (and its node graph) between accounts before running it elsewhere.

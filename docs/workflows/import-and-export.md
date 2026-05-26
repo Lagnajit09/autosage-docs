@@ -19,7 +19,7 @@ Use this to:
 
 ## Importing a workflow
 
-Open the **Import workflow** dialog from the [toolbar](/workflows/workflow-editor-guide#import-workflow) in the workflow editor. The dialog has **two ways** to provide the workflow definition:
+Open the **Import workflow** dialog from the [toolbar](/docs/workflows/workflow-editor-guide#import-workflow) in the workflow editor. The dialog has **two ways** to provide the workflow definition:
 
 - **Upload a JSON file** — pick an exported workflow file from your computer.
 - **Paste JSON** — paste the workflow JSON directly into the textarea below the upload option.
@@ -41,7 +41,7 @@ A workflow JSON stores the **structure** — nodes, edges, and references by ID 
 - Recreate every node and edge on the canvas.
 - **Leave configuration fields blank** wherever the referenced ID (a Vault entry, a credential, a saved script) doesn't exist in your account.
 
-You'll need to **manually re-link** these on each affected node before the workflow can run. This typically means picking the right server, credential, or script from your own [Vault](/key-vault) — the labels and connections are preserved, but the bindings have to be set again.
+You'll need to **manually re-link** these on each affected node before the workflow can run. This typically means picking the right server, credential, or script from your own [Vault](/docs/key-vault) — the labels and connections are preserved, but the bindings have to be set again.
 :::
 
 ## Exporting a workflow

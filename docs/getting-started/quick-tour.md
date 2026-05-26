@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This page is a brief walkthrough of the major areas of AutoSage. Each section is a quick overview with a link to the detailed guide for that topic.
 
-If you haven't signed up yet, start with [Create your account](/#create-your-account).
+If you haven't signed up yet, start with [Create your account](/docs/#create-your-account).
 
 ## Dashboard
 
@@ -82,5 +82,5 @@ The built-in script editor is where you write the script that an Action node run
 
 ## What's next
 
-- Haven't signed up yet? Start at [Create your account](/#create-your-account).
+- Haven't signed up yet? Start at [Create your account](/docs/#create-your-account).
 - Ready to go deeper? Each section above will link out to its detailed guide as the docs grow.

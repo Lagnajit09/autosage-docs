@@ -17,7 +17,7 @@ Click the **Terminal** button in the **top navbar** of the Script Editor. A dedi
 
 At the top of the terminal you'll find two selectors:
 
-- **Server** — pick the target server from your [Vault](/key-vault).
+- **Server** — pick the target server from your [Vault](/docs/key-vault).
 - **Credential** — pick the credential to authenticate with on that server.
 
 Once both are selected, click the **Run** button. The script starts executing on the chosen server, and its logs **stream back asynchronously** into the terminal as they happen.
@@ -35,7 +35,7 @@ The editor's terminal is intentionally minimal. It deliberately **does not** sup
 - **Multiple scripts** chained together.
 - **Multiple servers** in a single run.
 
-If you need any of these, build a **[workflow](/workflows/what-is-a-workflow)** instead. Workflows are where parameters, multi-step execution, and multi-server targeting all live.
+If you need any of these, build a **[workflow](/docs/workflows/what-is-a-workflow)** instead. Workflows are where parameters, multi-step execution, and multi-server targeting all live.
 
 ## Viewing past executions
 

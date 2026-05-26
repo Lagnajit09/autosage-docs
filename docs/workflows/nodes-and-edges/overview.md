@@ -35,7 +35,7 @@ A Trigger decides _how_ the workflow gets kicked off — whether you press a but
 - **HTTP Webhook** — fire the workflow from any system that can make an HTTP call.
 - **Job Scheduler** — run on a recurring schedule defined by a cron expression.
 
-See [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) for how to configure each one.
+See [Trigger Nodes](/docs/workflows/nodes-and-edges/trigger-nodes) for how to configure each one.
 
 ### Action nodes
 
@@ -43,10 +43,10 @@ The steps that **do the work**. A workflow can have as many Action nodes as you 
 
 Each Action node performs one concrete task against exactly one target. AutoSage offers two types:
 
-- **Script** — run a Python, PowerShell, or Shell script on a server in your [Vault](/key-vault).
+- **Script** — run a Python, PowerShell, or Shell script on a server in your [Vault](/docs/key-vault).
 - **Email** — send a notification email, typically to report status or alert on failure.
 
-See [Action Nodes](/workflows/nodes-and-edges/action-nodes) for every Action type and its configuration fields.
+See [Action Nodes](/docs/workflows/nodes-and-edges/action-nodes) for every Action type and its configuration fields.
 
 ### Decision nodes
 
@@ -54,7 +54,7 @@ The branching point. A Decision node evaluates a true/false condition based on t
 
 Use a Decision when the next step depends on _what just happened_ — "did the deploy succeed?", "is disk usage over 90%?", "did the script exit cleanly?".
 
-See [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) for the condition syntax and branching rules.
+See [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) for the condition syntax and branching rules.
 
 ## Edges
 
@@ -77,6 +77,6 @@ AutoSage has **three** edge types. The type is set automatically based on which 
 
 ## What's next
 
-- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Job Scheduler.
-- [Action Nodes](/workflows/nodes-and-edges/action-nodes) — Script and Email.
-- [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) — branching on true/false conditions.
+- [Trigger Nodes](/docs/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Job Scheduler.
+- [Action Nodes](/docs/workflows/nodes-and-edges/action-nodes) — Script and Email.
+- [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) — branching on true/false conditions.

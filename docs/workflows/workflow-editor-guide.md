@@ -51,7 +51,7 @@ It groups nodes into the three categories you'll work with:
 
 To use a node, **drag it from the menu and drop it onto the canvas**. The node appears at the drop location with default settings; click it to configure.
 
-For a deeper look at each node type, see [Nodes & Edges](/workflows/nodes-and-edges/overview).
+For a deeper look at each node type, see [Nodes & Edges](/docs/workflows/nodes-and-edges/overview).
 
 ---
 
@@ -94,7 +94,7 @@ sources={{
 - **Click an edge** — the form for that edge opens. Useful for edges out of a Decision node, where you set the `true`/`false` label.
 - **Click the canvas background** — the sidebar closes.
 
-The full field reference for each type lives in the [Nodes & Edges](/workflows/nodes-and-edges/overview) section.
+The full field reference for each type lives in the [Nodes & Edges](/docs/workflows/nodes-and-edges/overview) section.
 
 ---
 
@@ -114,15 +114,15 @@ sources={{
 
 Opens the **Import workflow** dialog, which lets you bring an existing workflow into the editor by uploading a JSON file or pasting JSON directly.
 
-For the full details — accepted JSON shape, both export options, and the caveat about what an import actually restores — see [Import and Export](/workflows/import-and-export).
+For the full details — accepted JSON shape, both export options, and the caveat about what an import actually restores — see [Import and Export](/docs/workflows/import-and-export).
 
 ### Vault
 
-Opens the **[Vault](/key-vault)** — your central store for **servers** and **credentials** that your workflows reference. From here you can add a new server, save a credential, or link an existing credential to a server so it auto-fills the next time you pick that server in an Action node.
+Opens the **[Vault](/docs/key-vault)** — your central store for **servers** and **credentials** that your workflows reference. From here you can add a new server, save a credential, or link an existing credential to a server so it auto-fills the next time you pick that server in an Action node.
 
 The Vault opens in the same browser tab; close it to return to the editor.
 
-For everything the Vault can do — creating multiple vaults, saving credentials, registering servers, and the auto-select behavior — see the dedicated [Key-Vault](/key-vault) page.
+For everything the Vault can do — creating multiple vaults, saving credentials, registering servers, and the auto-select behavior — see the dedicated [Key-Vault](/docs/key-vault) page.
 
 ### Profile
 
@@ -139,7 +139,7 @@ A dropdown that holds less-frequent editor actions:
 - **New workflow** — start a fresh, empty workflow on a new canvas.
 - **Clear canvas** — wipe every node and edge from the current workflow without deleting the workflow itself. Useful when you want to redesign from scratch.
 - **Delete workflow** — permanently remove the current workflow. Asks for confirmation.
-- **Open Script Editor** — jumps to the [Script editor](/quick-tour#script-editor), where you can write or edit the scripts that Action nodes run.
+- **Open Script Editor** — jumps to the [Script editor](/docs/quick-tour#script-editor), where you can write or edit the scripts that Action nodes run.
 
 ---
 
@@ -165,5 +165,5 @@ Autobot is on the roadmap and **not yet available**. The button is reserved on t
 
 ## What's next
 
-- [Nodes & Edges — Overview](/workflows/nodes-and-edges/overview) — the building blocks in detail.
-- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes), [Action Nodes](/workflows/nodes-and-edges/action-nodes), [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) — per-type configuration references.
+- [Nodes & Edges — Overview](/docs/workflows/nodes-and-edges/overview) — the building blocks in detail.
+- [Trigger Nodes](/docs/workflows/nodes-and-edges/trigger-nodes), [Action Nodes](/docs/workflows/nodes-and-edges/action-nodes), [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) — per-type configuration references.

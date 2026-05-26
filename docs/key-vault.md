@@ -73,5 +73,5 @@ When adding a server, you'll be asked for:
 Servers can be **edited** and **viewed** anytime as needed.
 
 :::tip One-less step in Action node configuration
-If a server has a **default credential linked**, simply selecting that server in a workflow's [Action node configuration](/workflows/nodes-and-edges/action-nodes) will **auto-select** its credential — saving you a step.
+If a server has a **default credential linked**, simply selecting that server in a workflow's [Action node configuration](/docs/workflows/nodes-and-edges/action-nodes) will **auto-select** its credential — saving you a step.
 :::

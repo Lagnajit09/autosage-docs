@@ -8,14 +8,14 @@ description: A single, account-wide view of every execution — workflow runs an
 
 The **Execution Logs** page is your account-wide window into everything AutoSage has ever run for you — workflow executions, single-script runs from the editor, all in one combined list.
 
-If the per-workflow [Workflow Execution](/workflows/workflow-execution) page is for watching and reviewing runs of **one** workflow, Execution Logs is for everything else: auditing activity across the whole account, hunting down a specific run when you don't remember which workflow it came from, or pulling a report of last week's runs.
+If the per-workflow [Workflow Execution](/docs/workflows/workflow-execution) page is for watching and reviewing runs of **one** workflow, Execution Logs is for everything else: auditing activity across the whole account, hunting down a specific run when you don't remember which workflow it came from, or pulling a report of last week's runs.
 
 ## What's in the list
 
 Every execution from your account appears here as a single row, regardless of where it was triggered from:
 
-- **Workflow runs** — anything launched from the [Workflow Execution](/workflows/workflow-execution) page, a webhook, or the scheduler.
-- **Single-script runs** — anything launched from the [Script Editor terminal](/script-editor/script-execution).
+- **Workflow runs** — anything launched from the [Workflow Execution](/docs/workflows/workflow-execution) page, a webhook, or the scheduler.
+- **Single-script runs** — anything launched from the [Script Editor terminal](/docs/script-editor/script-execution).
 
 Each row carries enough metadata to identify the run at a glance — what it was, when it happened, how it ended — and clicking a row opens the full captured log.
 
@@ -72,5 +72,5 @@ Filter to **Last 7 days** (or **Current month**), then bulk-export as CSV for a 
 
 ## What's next
 
-- [Workflow Execution](/workflows/workflow-execution) — the per-workflow execution page, with the live terminal and history scoped to one workflow.
-- [Script Execution](/script-editor/script-execution) — single-script runs from the editor; these also appear in Execution Logs.
+- [Workflow Execution](/docs/workflows/workflow-execution) — the per-workflow execution page, with the live terminal and history scoped to one workflow.
+- [Script Execution](/docs/script-editor/script-execution) — single-script runs from the editor; these also appear in Execution Logs.

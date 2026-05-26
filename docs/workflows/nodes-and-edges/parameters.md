@@ -25,7 +25,7 @@ They're also the **glue between nodes**. The output of an upstream Script node c
 
 Parameters are declared **per Action node**. Each Script or Email node that needs runtime values defines its own list of parameters in its configuration sidebar. There's no global "workflow parameters" list and no parameters on the Trigger node — the Trigger is only one of several **sources** that supply values for parameters declared elsewhere.
 
-**Decision nodes don't declare parameters.** A Decision references upstream outputs directly through its [Field/Value picker](/workflows/nodes-and-edges/decision-nodes#field), so it doesn't need the parameter machinery.
+**Decision nodes don't declare parameters.** A Decision references upstream outputs directly through its [Field/Value picker](/docs/workflows/nodes-and-edges/decision-nodes#field), so it doesn't need the parameter machinery.
 
 ## Anatomy of a parameter
 
@@ -46,7 +46,7 @@ In the parameter configuration sidebar, every parameter has four fields:
    - **Source = Manual** → a single **Default Value** input box shows up instead.
 4. **Either (Previous Node + Output Field) or Default Value**, depending on the Source you picked (see [Source: Output vs Manual](#source-output-vs-manual)).
 
-Behind the scenes, AutoSage also assigns each parameter an **auto-generated ID** — opaque, stable, and used internally as the key in the HTTP webhook body's `inputs` object. You don't pick it and you generally don't see it. The [Trigger Nodes page](/workflows/nodes-and-edges/trigger-nodes#sending-a-request) tells webhook callers to copy the whole `inputs` object from the configuration sidebar precisely so they never have to deal with these IDs by hand.
+Behind the scenes, AutoSage also assigns each parameter an **auto-generated ID** — opaque, stable, and used internally as the key in the HTTP webhook body's `inputs` object. You don't pick it and you generally don't see it. The [Trigger Nodes page](/docs/workflows/nodes-and-edges/trigger-nodes#sending-a-request) tells webhook callers to copy the whole `inputs` object from the configuration sidebar precisely so they never have to deal with these IDs by hand.
 
 ## Parameter types
 
@@ -75,7 +75,7 @@ Pick this when the parameter's value should come from an **upstream node**. Two 
 
 - **Previous Node** — a dropdown listing every node upstream of this one in the graph. Pick the one whose output you want to use.
 - **Output Field** — once a node is picked, this dropdown shows the keys you can reference on that node:
-  - For a node with [JSON Output](/workflows/nodes-and-edges/action-nodes#5-output-formatting), each declared field appears by name.
+  - For a node with [JSON Output](/docs/workflows/nodes-and-edges/action-nodes#5-output-formatting), each declared field appears by name.
   - For a node with **Plain Text** output (or as an option on JSON-output nodes too), pick **`input_as_text`** to reference the whole captured response as a single string.
 
 There is **no "default" or fallback** for an Output-sourced parameter. If the upstream node didn't produce the field you picked, the value is missing and the dependent node will fail when it tries to read it.
@@ -101,12 +101,12 @@ For Output-sourced parameters, the `inputs` object in the webhook body shows the
 
 If a caller hand-edits the `inputs` body and accidentally replaces that placeholder with a static value, the webhook value **takes precedence** — and the parameter silently stops sourcing from the upstream node for that run.
 
-This is precisely why the [Trigger Nodes page](/workflows/nodes-and-edges/trigger-nodes#sending-a-request) tells callers to **copy the entire `inputs` object from the configuration sidebar** rather than reconstructing it by hand. The pre-populated object has the right placeholders in place; copying it preserves the Output-source wiring.
+This is precisely why the [Trigger Nodes page](/docs/workflows/nodes-and-edges/trigger-nodes#sending-a-request) tells callers to **copy the entire `inputs` object from the configuration sidebar** rather than reconstructing it by hand. The pre-populated object has the right placeholders in place; copying it preserves the Output-source wiring.
 :::
 
 ### Scheduled runs and missing values
 
-[Job Scheduler](/workflows/nodes-and-edges/trigger-nodes#job-scheduler) triggers have no caller, so step 1 above never applies. Every parameter falls back to its configured Source — Manual values come from the Default Value field, Output values come from the upstream node. If your workflow is meant to run on a schedule, **every Manual-sourced parameter needs a Default Value**, and every Output-sourced parameter needs a reliable upstream — otherwise the dependent node will fail at run time.
+[Job Scheduler](/docs/workflows/nodes-and-edges/trigger-nodes#job-scheduler) triggers have no caller, so step 1 above never applies. Every parameter falls back to its configured Source — Manual values come from the Default Value field, Output values come from the upstream node. If your workflow is meant to run on a schedule, **every Manual-sourced parameter needs a Default Value**, and every Output-sourced parameter needs a reliable upstream — otherwise the dependent node will fail at run time.
 
 ## Reading parameters from a script
 
@@ -150,8 +150,8 @@ Note that `{{restart_attempts}}` isn't quoted — it's a Number, so it gets subs
 
 A quick summary of where parameters show up across the other pages in this section:
 
-- **[HTTP Webhook triggers](/workflows/nodes-and-edges/trigger-nodes#http-webhook)** — the request body's `inputs` object is the caller-supplied source. Each key in `inputs` is a **parameter ID**, not a parameter name. A caller-supplied value overrides whatever Source the parameter was configured with.
-- **[Job Scheduler triggers](/workflows/nodes-and-edges/trigger-nodes#job-scheduler)** — no caller, so every parameter resolves against its configured Source: Manual params use the Default Value, Output params pull from the upstream node.
-- **[Script nodes](/workflows/nodes-and-edges/action-nodes#script-node)** — declare parameters in the configuration sidebar; reference them with `{{param_name}}` inside the script (or from `$env:…` for Passwords).
-- **[Email nodes](/workflows/nodes-and-edges/action-nodes#email-node)** — parameters are **not** inlined into the subject or body with `{{…}}`. Instead, a parameter configured on the Email node appends its value (or the upstream node's full output, if `input_as_text (Raw)` is selected) to the email body automatically.
-- **[Decision nodes](/workflows/nodes-and-edges/decision-nodes)** — don't declare parameters. Reference upstream outputs directly through the Field/Value picker, which has the same Manual/Output shape.
+- **[HTTP Webhook triggers](/docs/workflows/nodes-and-edges/trigger-nodes#http-webhook)** — the request body's `inputs` object is the caller-supplied source. Each key in `inputs` is a **parameter ID**, not a parameter name. A caller-supplied value overrides whatever Source the parameter was configured with.
+- **[Job Scheduler triggers](/docs/workflows/nodes-and-edges/trigger-nodes#job-scheduler)** — no caller, so every parameter resolves against its configured Source: Manual params use the Default Value, Output params pull from the upstream node.
+- **[Script nodes](/docs/workflows/nodes-and-edges/action-nodes#script-node)** — declare parameters in the configuration sidebar; reference them with `{{param_name}}` inside the script (or from `$env:…` for Passwords).
+- **[Email nodes](/docs/workflows/nodes-and-edges/action-nodes#email-node)** — parameters are **not** inlined into the subject or body with `{{…}}`. Instead, a parameter configured on the Email node appends its value (or the upstream node's full output, if `input_as_text (Raw)` is selected) to the email body automatically.
+- **[Decision nodes](/docs/workflows/nodes-and-edges/decision-nodes)** — don't declare parameters. Reference upstream outputs directly through the Field/Value picker, which has the same Manual/Output shape.

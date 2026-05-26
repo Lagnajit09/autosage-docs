@@ -60,7 +60,7 @@ The Field is what you're checking. It can be one of two types:
 
 - **Manual** — you type a literal value directly into a text input. Useful as a constant on one side of the comparison.
 - **Output** — reference a value produced by an **upstream node**. Pick the node, then pick one of its output keys:
-  - For a node with [JSON Output](/workflows/nodes-and-edges/action-nodes#5-output-formatting) configured, you'll see each declared field (e.g., `service_status`, `disk_usage`) in the picker.
+  - For a node with [JSON Output](/docs/workflows/nodes-and-edges/action-nodes#5-output-formatting) configured, you'll see each declared field (e.g., `service_status`, `disk_usage`) in the picker.
   - For a node with **Plain Text** output, select the **Raw** option to refer to the whole captured string.
 
 #### Operator
@@ -109,4 +109,4 @@ Every Decision node has **exactly two outgoing edges**:
 
 Wire each edge to whatever node should run next in that branch. At run time, AutoSage follows **exactly one** of the two edges and prunes the other from this run — the skipped branch's nodes are never executed.
 
-For a refresher on edge types, see [Nodes & Edges — Edges](/workflows/nodes-and-edges/overview#edges).
+For a refresher on edge types, see [Nodes & Edges — Edges](/docs/workflows/nodes-and-edges/overview#edges).

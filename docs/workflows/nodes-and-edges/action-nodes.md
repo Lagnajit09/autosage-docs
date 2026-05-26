@@ -19,7 +19,7 @@ sources={{
 
 An **Action node** is a step in a workflow that **does the actual work** — runs a script on a server, sends an email, performs a side effect against something outside the workflow. Where Trigger nodes decide _when_ a workflow runs and Decision nodes decide _which path_ it takes, Action nodes are where things actually happen.
 
-A workflow can have **as many Action nodes as you need**, arranged in sequence, in parallel, or both. Each Action node performs **one concrete task** against **exactly one target** — that "one node, one server" design is covered in [What is a Workflow?](/workflows/what-is-a-workflow#one-node-one-server).
+A workflow can have **as many Action nodes as you need**, arranged in sequence, in parallel, or both. Each Action node performs **one concrete task** against **exactly one target** — that "one node, one server" design is covered in [What is a Workflow?](/docs/workflows/what-is-a-workflow#one-node-one-server).
 
 ## When to use which action
 
@@ -67,7 +67,7 @@ Choosing the wrong script type for the target's OS will cause the run to fail at
 
 Three ways to attach a script to the node:
 
-- **Write a script** — opens the built-in [Script editor](/quick-tour#script-editor) so you can author the script from scratch, save it, and have AutoSage attach it to this node automatically.
+- **Write a script** — opens the built-in [Script editor](/docs/quick-tour#script-editor) so you can author the script from scratch, save it, and have AutoSage attach it to this node automatically.
 - **Upload a script** — pick a script file from your computer. AutoSage uploads it and selects it on the node in one step.
 - **Select an existing script** — choose from the scripts already saved in your account.
 
@@ -77,7 +77,7 @@ The list of available files in **Upload** and **Select existing** is **filtered 
 
 Where the script will run (when Execution mode is Remote).
 
-- **Server** — pick a server from your [Vault](/key-vault). Manual typing of host/IP is **not allowed** — the server must already be saved.
+- **Server** — pick a server from your [Vault](/docs/key-vault). Manual typing of host/IP is **not allowed** — the server must already be saved.
 - **Credential** — pick a credential from the Vault. Also not type-able for the same reason.
 
 :::tip Save the server and credential first
@@ -156,7 +156,7 @@ Runtime parameters are values the script reads from **outside the script body** 
 
 This is the mechanism that ties a workflow's nodes together into something more than a sequence of isolated steps.
 
-For the full reference — parameter types, how to reference upstream outputs, default value resolution, and the `{{param_name}}` syntax for reading parameters inside a script — see [Parameters](/workflows/nodes-and-edges/parameters).
+For the full reference — parameter types, how to reference upstream outputs, default value resolution, and the `{{param_name}}` syntax for reading parameters inside a script — see [Parameters](/docs/workflows/nodes-and-edges/parameters).
 
 ## Email Node
 
@@ -198,7 +198,7 @@ This is where you point the node at **your** SMTP server.
 - **Port** — the port AutoSage connects on. Two common cases:
   - **Secure connection checkbox unchecked** → port **587** (STARTTLS, the default for most modern SMTP servers).
   - **Secure connection checkbox checked** → port **465** (SMTPS, implicit TLS from the start of the connection).
-- **Credentials** — pick the SMTP credential from your [Vault](/key-vault). Manual entry isn't supported here either; save the credential to the Vault first, then select it.
+- **Credentials** — pick the SMTP credential from your [Vault](/docs/key-vault). Manual entry isn't supported here either; save the credential to the Vault first, then select it.
 
 :::tip Which port should I pick?
 If you're unsure, leave **Secure connection unchecked** (port 587). Most modern providers prefer STARTTLS on 587. Only switch to 465 if your provider's docs specifically say to use SMTPS.
@@ -229,4 +229,4 @@ The raw content is **appended to the body only** — the subject line is never m
 
 A typical pattern is to write a short human-readable lead in the body ("Health check failed on `web-02`. Full output below:") and let the raw content fill in underneath.
 
-For the full reference on parameter wiring — including how the same machinery applies to Script nodes — see [Parameters](/workflows/nodes-and-edges/parameters).
+For the full reference on parameter wiring — including how the same machinery applies to Script nodes — see [Parameters](/docs/workflows/nodes-and-edges/parameters).

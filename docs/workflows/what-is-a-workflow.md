@@ -20,7 +20,7 @@ Server work tends to be **repetitive, multi-step, and brittle**. A typical task 
 A workflow gives you:
 
 - **A visual mental model** — you can _see_ what happens when, instead of reading through a 200-line bash script.
-- **Reusable building blocks** — define a server and its credentials once in the [Vault](/key-vault), reference them from any workflow.
+- **Reusable building blocks** — define a server and its credentials once in the [Vault](/docs/key-vault), reference them from any workflow.
 
 - **Multiple ways to trigger** — run on demand, on a schedule, or from an external system (CI, GitHub Actions, monitoring) via webhook.
 - **Live observability** — every run streams logs back to your browser as it happens, and the full output is preserved.
@@ -48,7 +48,7 @@ There are three kinds of nodes, and every workflow uses them in roughly the same
 
 Nodes are connected by **edges** — directed lines that say "after this node finishes, run that one next." Edges out of a Decision node carry a label (`true` or `false`) so AutoSage knows which branch to take.
 
-For more on each node type and how to configure them, see [Nodes & Edges](/workflows/nodes-and-edges/overview).
+For more on each node type and how to configure them, see [Nodes & Edges](/docs/workflows/nodes-and-edges/overview).
 
 ## One node, one server
 
@@ -98,9 +98,9 @@ You can watch all of this from the Run history view.
 
 Before you build a workflow, you'll want at least:
 
-- **A server registered in the [Vault](/key-vault)** — the target for any Action node that runs a script.
+- **A server registered in the [Vault](/docs/key-vault)** — the target for any Action node that runs a script.
 - **Credentials linked to that server** — so the workflow can authenticate. Saved once, reused across every workflow.
-- **A script** — written in Python, PowerShell, or Shell, in the built-in [Script editor](/quick-tour#script-editor). Or paste an existing one.
+- **A script** — written in Python, PowerShell, or Shell, in the built-in [Script editor](/docs/quick-tour#script-editor). Or paste an existing one.
 
 The credential and server live in the Vault precisely so you don't have to enter them every time. Pick the server in your Action node, and its credential is filled in automatically.
 
@@ -112,7 +112,7 @@ A workflow is also the **unit of sharing and reuse**: you can duplicate a workfl
 
 ## What's next
 
-- [Nodes & Edges — Overview](/workflows/nodes-and-edges/overview) — the building blocks in detail.
-- [Trigger Nodes](/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Job Scheduler.
-- [Action Nodes](/workflows/nodes-and-edges/action-nodes) — Script and Email.
-- [Decision Nodes](/workflows/nodes-and-edges/decision-nodes) — branching on true/false.
+- [Nodes & Edges — Overview](/docs/workflows/nodes-and-edges/overview) — the building blocks in detail.
+- [Trigger Nodes](/docs/workflows/nodes-and-edges/trigger-nodes) — Manual, HTTP Webhook, and Job Scheduler.
+- [Action Nodes](/docs/workflows/nodes-and-edges/action-nodes) — Script and Email.
+- [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) — branching on true/false.
