@@ -33,7 +33,7 @@ The editor is made up of five parts:
 A few of these parts are toggled on demand rather than always visible:
 
 - **Terminal** and **Executions** — buttons in the **top-right corner** of the editor open the execution terminal and the executions log viewer respectively.
-- **Autobot** — button in the **bottom-right corner** opens the Autobot script generator.
+- **Autobot** — button in the **bottom-right corner** opens the [Autobot script generator](/docs/autobot/autobot-script).
 
 The editor and file explorer are visible by default whenever you open the Script Editor.
 

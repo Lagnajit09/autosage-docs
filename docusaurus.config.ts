@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "AutoSage",
+  title: "Autosage",
   tagline: "Automation platform powered by AI agents",
   favicon: "img/icon.png",
 
@@ -76,10 +76,10 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: "AutoSage",
+      title: "AUTOSAGE",
       logo: {
         alt: "AutoSage Logo",
-        src: "img/logo.png",
+        src: "img/icon.png",
       },
       items: [
         {

@@ -48,6 +48,6 @@ Already have an account? Sign in at **[autosagex.web.app/signin](https://autosag
 - [Quick Tour](/docs/quick-tour) — a five-minute walkthrough of every part of the app.
 <!-- TODO: add "Build your first workflow" tutorial link once that page exists -->
 
-## Coming soon: Autobot
+## Meet Autobot
 
-AutoSage will include a built-in AI assistant called **Autobot** that can generate scripts, draft workflows from a prompt, and help troubleshoot failing runs. Autobot is on the roadmap and is **not yet available** — this section will expand once it ships.
+AutoSage includes a built-in AI assistant called **[Autobot](/docs/autobot-intro)** that chats with you, generates scripts, drafts workflows from a prompt, and reads your existing library to give grounded answers — all from inside your account. Head to the [Autobot section](/docs/autobot-intro) to get started.

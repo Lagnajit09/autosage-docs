@@ -155,10 +155,10 @@ sources={{
   }}
 /> -->
 
-Click it to open a modal where you can describe what you want a workflow to do, and Autobot drafts the nodes and edges for you.
+Click it to open a pre-filled [Autobot](/docs/autobot-intro) thread where you can describe what you want a workflow to do, and Autobot drafts the nodes and edges for you. The draft lands on your Workflows page for you to review in this builder before running it.
 
-:::note Coming soon
-Autobot is on the roadmap and **not yet available**. The button is reserved on the editor for now; clicking it shows a "coming soon" message.
+:::tip See the full guide
+For prompt tips and how generated drafts work, see [Workflow actions](/docs/autobot/autobot-workflow).
 :::
 
 ---
