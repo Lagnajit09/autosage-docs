@@ -22,3 +22,7 @@ yarn-error.log*
 
 CLAUDE.md
 plans/
+
+.firebase
+.firebase/**
+autosagex-firebase-adminsdk-*.json

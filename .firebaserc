@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "autosagex"
+  },
+  "targets": {
+    "autosagex": {
+      "hosting": {
+        "docs": [
+          "autosagexdocs"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

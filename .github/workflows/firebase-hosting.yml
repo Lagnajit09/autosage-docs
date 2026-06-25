@@ -1,0 +1,76 @@
+name: Deploy Docs to Firebase Hosting
+
+# Dedicated repo (Lagnajit09/autosage-docs), so any change on main is a docs
+# change — no path filters needed (unlike the monorepo's client workflow).
+#
+# - push to main  → build with the prod backend origin, deploy to the LIVE
+#   channel of the `docs` hosting target (site: autosagexdocs).
+# - pull_request  → build + deploy to a temporary PREVIEW channel; the Firebase
+#   action comments the preview URL on the PR. Does NOT touch live.
+# - manual        → workflow_dispatch for re-deploys without a new commit.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# One in-flight deploy per ref; a newer push cancels an older running build.
+concurrency:
+  group: firebase-docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write          # Firebase action writes a check with the preview URL
+      pull-requests: write   # ...and comments the preview URL on PRs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: package-lock.json
+
+      - name: Verify AUTOBOT_API_URL is set
+        run: |
+          if [ -z "${AUTOBOT_API_URL}" ]; then
+            echo "::error::AUTOBOT_API_URL is empty. Set it as a repo variable"
+            echo "::error::(Settings → Secrets and variables → Actions → Variables)."
+            echo "::error::It must be the public backend ORIGIN the browser calls"
+            echo "::error::through nginx, e.g. https://<your-backend-domain> —"
+            echo "::error::NOT the AI service's internal :8030 port."
+            exit 1
+          fi
+          echo "AUTOBOT_API_URL is set (length: ${#AUTOBOT_API_URL})."
+        env:
+          AUTOBOT_API_URL: ${{ vars.AUTOBOT_API_URL }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (inject backend origin at build time)
+        # The AutobotWidget reads siteConfig.customFields.autobotApiUrl, which
+        # docusaurus.config.ts sources from process.env.AUTOBOT_API_URL. The
+        # origin is therefore baked into the static bundle here.
+        run: npm run build
+        env:
+          AUTOBOT_API_URL: ${{ vars.AUTOBOT_API_URL }}
+
+      - name: Deploy to Firebase Hosting (docs target)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: autosagex
+          target: docs
+          # Live channel on main; ephemeral preview channel for PRs.
+          channelId: ${{ github.ref == 'refs/heads/main' && 'live' || '' }}
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
