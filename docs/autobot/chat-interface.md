@@ -11,13 +11,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The chat surface is where you talk to Autobot. It's a familiar back-and-forth: you type a message, Autobot replies, and the whole exchange is kept as a **thread** you can return to later.
 
-<ThemedImage
+<!-- <ThemedImage
 alt="The Autobot chat interface, showing the History panel on the left, the conversation in the center with an inline tool-call badge, and the message input at the bottom"
 sources={{
     light: useBaseUrl('/img/screenshots/autobot-chat-light.svg'),
     dark: useBaseUrl('/img/screenshots/autobot-chat-dark.svg'),
   }}
-/>
+/> -->
 
 The page has two main regions:
 
@@ -36,11 +36,11 @@ A streamed reply can be interrupted if your network drops the connection or your
 
 When Autobot does something beyond talking — reading your library, creating a script, building a workflow — it uses a **tool**, and you see that happen inline. A badge appears in the conversation, for example:
 
-> 🔧 *Creating script: `ping_servers.py`*
+> 🔧 _Creating script: `ping_servers.py`_
 
-> 🔧 *Listing your workflows*
+> 🔧 _Listing your workflows_
 
-The result of the tool appears immediately after the badge, and then Autobot continues its reply. This makes its actions transparent: you always know *what* it touched and *when*, rather than getting a finished artifact with no trace of how it got there.
+The result of the tool appears immediately after the badge, and then Autobot continues its reply. This makes its actions transparent: you always know _what_ it touched and _when_, rather than getting a finished artifact with no trace of how it got there.
 
 A single message can trigger several tool calls in a row (for example, "create a workflow with three scripts" might list your scripts, create each one, then assemble the workflow). Each one shows its own badge. There's a built-in ceiling on how many rounds one message can take — see [Limits](/docs/autobot/limits-and-privacy#limits-and-quotas).
 
@@ -48,11 +48,11 @@ A single message can trigger several tool calls in a row (for example, "create a
 
 Each chat runs in one of three **modes**, which control how much Autobot is allowed to do. You pick the mode in the chat, and it acts as a hard floor — Autobot is never offered an action above the current mode.
 
-| Mode | What it unlocks |
-| --- | --- |
-| **Research** | Read-only: list and read scripts/workflows, look up vault metadata, investigate past runs. |
-| **Generation** | Research **plus** creating and updating scripts and workflows. |
-| **Execution** | Generation **plus** running, re-running, and investigating live runs. |
+| Mode           | What it unlocks                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| **Research**   | Read-only: list and read scripts/workflows, look up vault metadata, investigate past runs. |
+| **Generation** | Research **plus** creating and updating scripts and workflows.                             |
+| **Execution**  | Generation **plus** running, re-running, and investigating live runs.                      |
 
 Research and Generation are available to everyone. **Execution mode is gated** — it requires your own [LLM key](/docs/autobot/customizing#bring-your-own-llm-key), and its button is hidden until you've connected one. Everything execution mode unlocks is covered on the [Execution copilot](/docs/autobot/execution-copilot) page.
 
@@ -68,11 +68,11 @@ Every conversation is a **thread**. Threads keep full history, so you can pick o
 
 The **History** panel lists your active threads, newest first. Each row has a `⋯` menu:
 
-| Action | What it does |
-| --- | --- |
-| **Rename** | Change the auto-generated title to something memorable. |
+| Action      | What it does                                              |
+| ----------- | --------------------------------------------------------- |
+| **Rename**  | Change the auto-generated title to something memorable.   |
 | **Archive** | Hide the thread from the active list — without losing it. |
-| **Delete** | Permanently remove the thread and all its messages. |
+| **Delete**  | Permanently remove the thread and all its messages.       |
 
 :::caution Delete is permanent
 **Archive** hides a thread; **Delete** destroys it. If you might want to revisit a conversation later, archive it instead of deleting.

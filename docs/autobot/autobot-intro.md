@@ -5,13 +5,24 @@ title: Introduction
 description: Autobot is AutoSage's built-in AI assistant — it chats with you, generates scripts and workflows, and reads your existing automation library to give grounded answers.
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Autobot
+
+<ThemedImage
+alt="Autobot generating a script — the chat shows a 'Creating script' tool badge and the generated script body, which lands in the Script library"
+sources={{
+    light: useBaseUrl('/img/screenshots/autobot-icon-light.svg'),
+    dark: useBaseUrl('/img/screenshots/autobot-icon-dark.svg'),
+  }}
+/>
 
 **Autobot** is AutoSage's built-in AI assistant. It chats with you, generates scripts and workflows, helps you reason about your automation library, and reads from your existing setup to give grounded answers — all from inside your AutoSage account.
 
 Think of it as a copilot for automation. You describe what you want in plain language; Autobot writes the script or drafts the workflow, saves it into your library with one click, and explains its reasoning along the way. With your own LLM key connected, it can go further — **running** your automation, watching it stream live, and helping you diagnose and fix failures.
 
-:::tip This section is for *using* Autobot
+:::tip This section is for _using_ Autobot
 These pages walk through Autobot from a user's perspective. If you're after the architecture (service topology, internal APIs, deploy pipeline), that lives in the product repo's engineering docs, not here.
 :::
 
@@ -29,11 +40,11 @@ These pages walk through Autobot from a user's perspective. If you're after the 
 
 Some boundaries are deliberate, not missing features:
 
-- **Execution is gated.** Autobot *can* run automation, but only in [**execution mode**](/docs/autobot/execution-copilot#modes-research-generation-execution), and only when you've connected your own [LLM key](/docs/autobot/customizing#bring-your-own-llm-key). Reading and generating are always available; running is something you switch into on purpose.
+- **Execution is gated.** Autobot _can_ run automation, but only in [**execution mode**](/docs/autobot/execution-copilot#modes-research-generation-execution), and only when you've connected your own [LLM key](/docs/autobot/customizing#bring-your-own-llm-key). Reading and generating are always available; running is something you switch into on purpose.
 - It will **not reveal vault secrets** to you or to the model. Credentials are referenced by id only, and a runtime password travels [browser-to-server directly](/docs/autobot/execution-copilot#secure-password-side-channel) — never through Autobot.
 - It does **not** manage cloud infrastructure, write Ansible playbooks, or upload files. (Cloud-infra tooling is on the [roadmap](/docs/autobot/limits-and-privacy#roadmap).)
 
-:::info Autobot acts under *your* identity
+:::info Autobot acts under _your_ identity
 Autobot can only touch resources you could reach yourself through the normal UI, and it can't escalate its own privileges. Running automation — the most consequential action — sits behind an explicit mode switch and your own LLM key. See [Limits & Privacy](/docs/autobot/limits-and-privacy) for the full reasoning.
 :::
 
@@ -56,17 +67,17 @@ There are two Autobot entries in the left navigation: **Autobot** (the chat surf
 
 Autobot understands plain language. The more specific you are about your environment, the better the result. Some prompts that work well:
 
-> *"Write me a Python script that pings a list of servers and prints any that are unreachable."*
+> _"Write me a Python script that pings a list of servers and prints any that are unreachable."_
 
-> *"Show me the workflows I have and tell me which ones don't have a trigger configured."*
+> _"Show me the workflows I have and tell me which ones don't have a trigger configured."_
 
-> *"Build a workflow: every weekday at 7am UTC, run `db-backup.sh` on `prod-db-1`, and email me when it finishes."*
+> _"Build a workflow: every weekday at 7am UTC, run `db-backup.sh` on `prod-db-1`, and email me when it finishes."_
 
-> *"What does the script `cleanup-logs.py` actually do? Walk me through it."*
+> _"What does the script `cleanup-logs.py` actually do? Walk me through it."_
 
-> *"I have a credential called `aws-readonly` — which workflows use it?"*
+> _"I have a credential called `aws-readonly` — which workflows use it?"_
 
-When Autobot performs an action — creating a script, building a workflow, listing your library — you'll see an **inline badge** (e.g. *"Creating script: ping_servers.py"*) and the result appears immediately afterward. The mechanics of those badges and the live token stream are covered in [Chat interface](/docs/autobot/chat-interface).
+When Autobot performs an action — creating a script, building a workflow, listing your library — you'll see an **inline badge** (e.g. _"Creating script: ping_servers.py"_) and the result appears immediately afterward. The mechanics of those badges and the live token stream are covered in [Chat interface](/docs/autobot/chat-interface).
 
 :::tip Mention names of things that exist
 Script names, workflow names, credential names — say them. Autobot can read your library, but only when prompted to. "Run on `prod-db-1`" works far better than "run on the database server", because Autobot can look `prod-db-1` up in your [Vault](/docs/key-vault) and wire in the right credential.
@@ -86,17 +97,17 @@ Autobot generates first drafts. Review a script body before running it, and open
 ## Tips for good results
 
 - **Be specific about your environment.** Name the exact server, the exact credential, the exact constraint ("UTC only", "Python over shell").
-- **Iterate.** Ask for a draft, then refine in the same thread — *"now add error handling"*, *"use the `aws-readonly` credential instead"*. Each turn builds on the last.
+- **Iterate.** Ask for a draft, then refine in the same thread — _"now add error handling"_, _"use the `aws-readonly` credential instead"_. Each turn builds on the last.
 - **For running and long debugging sessions, use [BYO](/docs/autobot/customizing#bring-your-own-llm-key).** [Execution mode](/docs/autobot/execution-copilot) requires your own provider key, and tool-using chats (especially workflow generation) can burn tokens quickly. The shared admin quota is a starter; heavy users should plug in their own key.
 
 ## How this section is organized
 
-| Page | What it covers |
-| --- | --- |
-| [Chat interface](/docs/autobot/chat-interface) | The chat surface, streaming, tool badges, modes, threads, history, and archive. |
-| [Script actions](/docs/autobot/autobot-script) | How Autobot reads, writes, saves, and runs scripts. |
-| [Workflow actions](/docs/autobot/autobot-workflow) | How Autobot drafts, saves, and runs workflow graphs. |
-| [Execution copilot](/docs/autobot/execution-copilot) | Running, watching, investigating, and fixing runs — modes, the Run Panel, and password safety. |
-| [Customizing & LLM keys](/docs/autobot/customizing) | Tone, expertise, language, custom instructions, per-thread overrides, and connecting your own provider key (BYO). |
-| [The Autobot Dashboard](/docs/autobot/dashboard) | Usage buckets, model breakdown, and your remaining quota. |
-| [Limits & Privacy](/docs/autobot/limits-and-privacy) | Quotas, rate limits, privacy, security, and troubleshooting. |
+| Page                                                 | What it covers                                                                                                    |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| [Chat interface](/docs/autobot/chat-interface)       | The chat surface, streaming, tool badges, modes, threads, history, and archive.                                   |
+| [Script actions](/docs/autobot/autobot-script)       | How Autobot reads, writes, saves, and runs scripts.                                                               |
+| [Workflow actions](/docs/autobot/autobot-workflow)   | How Autobot drafts, saves, and runs workflow graphs.                                                              |
+| [Execution copilot](/docs/autobot/execution-copilot) | Running, watching, investigating, and fixing runs — modes, the Run Panel, and password safety.                    |
+| [Customizing & LLM keys](/docs/autobot/customizing)  | Tone, expertise, language, custom instructions, per-thread overrides, and connecting your own provider key (BYO). |
+| [The Autobot Dashboard](/docs/autobot/dashboard)     | Usage buckets, model breakdown, and your remaining quota.                                                         |
+| [Limits & Privacy](/docs/autobot/limits-and-privacy) | Quotas, rate limits, privacy, security, and troubleshooting.                                                      |
