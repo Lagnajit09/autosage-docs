@@ -15,6 +15,17 @@ const config: Config = {
 
   onBrokenLinks: "throw",
 
+  // Build-time config consumed by the docs assistant widget (Pillar A).
+  // The AutobotWidget reads `autobotApiUrl` via useDocusaurusContext() and
+  // calls `${autobotApiUrl}/api/ai/docs/chat/stream/`. Override per
+  // environment by setting AUTOBOT_API_URL when building (e.g.
+  // `AUTOBOT_API_URL=https://api.example.com npm run build`); the default is
+  // the deployed backend so a plain build still points somewhere valid.
+  customFields: {
+    autobotApiUrl:
+      process.env.AUTOBOT_API_URL || "https://autosagex-api.duckdns.org",
+  },
+
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: "warn",
