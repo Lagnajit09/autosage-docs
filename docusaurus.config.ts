@@ -3,11 +3,11 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "Autosage",
+  title: "Docs | Autosage",
   tagline: "Automation platform powered by AI agents",
   favicon: "img/icon.png",
 
-  url: "https://autosage-docs.example.com",
+  url: "https://autosagexdocs.web.app",
   baseUrl: "/",
 
   organizationName: "Lagnajit09",
@@ -109,6 +109,12 @@ const config: Config = {
         {
           type: "search",
           position: "right",
+        },
+        {
+          href: "https://autosagex.web.app",
+          position: "right",
+          className: "header-website-link",
+          "aria-label": "AutosageX App",
         },
         {
           href: "https://github.com/Lagnajit09/autosage",

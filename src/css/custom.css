@@ -99,6 +99,22 @@
   background-color: var(--ifm-color-emphasis-300);
 }
 
+/* Autosage App Navbar Icon */
+.header-website-link {
+  padding: 0 12px;
+}
+
+.header-website-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background-image: url("/img/icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 /* GitHub Navbar Icon */
 .header-github-link {
   padding: 0 12px;

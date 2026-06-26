@@ -407,7 +407,7 @@ export default function AutobotWidget(): ReactNode {
         </div>
 
         <p className={styles.disclaimer}>
-          Autobot is an AI and can make mistakes. Please verify the response.
+          Autobot can make mistakes. Please verify the response.
         </p>
       </aside>
     </>
