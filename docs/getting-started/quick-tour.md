@@ -80,7 +80,36 @@ The built-in script editor is where you write the script that an Action node run
 
 <!-- TODO: add "Learn more → /script-editor" once the Script editor page exists -->
 
+## Library
+
+The **Library** is a catalog of pre-built workflows, nodes, and scripts curated by the AutoSage team. Browse by type (Workflows, Nodes, Scripts), search by name or tag, and fork anything you want to use. Forked workflows land in your Workflows page as drafts; forked scripts land in your Script library; copied nodes go straight to your clipboard for pasting into the Workflow Editor.
+
+<ThemedImage
+  alt="AutoSage Library page showing filter tabs and a grid of library item cards"
+  sources={{
+    light: useBaseUrl('/img/screenshots/library-light.png'),
+    dark: useBaseUrl('/img/screenshots/library-dark.png'),
+  }}
+/>
+<!-- TODO: replace with real screenshot of the Library page -->
+
+[Learn more → Library](/docs/library/overview)
+
+## Autobot
+
+**Autobot** is the built-in AI assistant. It can answer questions about your account, generate scripts and full workflows from a prompt, and — in [execution mode](/docs/autobot/execution-copilot) — trigger runs directly from chat. Autobot is available from the left navigation and from a floating button inside the Workflow Editor.
+
+<!-- TODO: add "Learn more → /autobot/autobot-intro" once preferred -->
+
+## Plans & Pricing
+
+AutoSage has three tiers — **Free**, **Pro**, and **Enterprise** — plus a **Pro Day Pass** for one-off 24-hour Pro access at ₹99. All new accounts start on Free with no credit card required. Pro unlocks higher resource limits and Autobot execution mode. The **Plans** page in the left navigation has the full comparison table and subscribe buttons.
+
+[Learn more → Plans & Pricing](/docs/plans/overview)
+
 ## What's next
 
 - Haven't signed up yet? Start at [Create your account](/docs/#create-your-account).
-- Ready to go deeper? Each section above will link out to its detailed guide as the docs grow.
+- Want reusable building blocks? Browse the [Library](/docs/library/overview).
+- Ready to understand pricing? See [Plans & Pricing](/docs/plans/overview).
+- Each section above links out to its detailed guide.

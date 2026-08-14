@@ -23,6 +23,10 @@ Most of these limits are invisible in normal use — they only fire if something
 
 If you hit the **admin daily quota**, the chat surface tells you and prompts you to set up a [BYO key](/docs/autobot/customizing#bring-your-own-llm-key). All other limits are normally invisible.
 
+:::info These are Autobot-specific limits
+The limits above govern Autobot's chat and execution behavior. Separate **plan limits** cap the number of workflows, scripts, triggers, and vault entries in your account — see [Plans & Pricing](/docs/plans/overview) for those.
+:::
+
 ### Execution quota {#execution-quota}
 
 Running scripts and workflows from chat (the [execution copilot](/docs/autobot/execution-copilot)) is metered by a **separate per-user daily quota** from the LLM admin quota. Two reasons it exists independently:

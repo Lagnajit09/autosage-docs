@@ -22,6 +22,8 @@ If you've used tools like n8n or Zapier, the workflow concept will feel familiar
 - **Manage servers and credentials** in a central [Vault](/docs/key-vault), and link credentials to servers so they auto-fill when selected.
 - **Run workflows on demand** from the dashboard, **on a schedule** with a cron expression, or **from external systems** via authenticated HTTP webhooks.
 - **Watch executions live** — every run streams stdout and stderr back to your browser as it happens, with full logs preserved for later review.
+- **Browse the Library** — fork curated workflows, copy pre-configured nodes, and clone scripts from the [AutoSage Library](/docs/library/overview) into your own account.
+- **Manage your plan** — compare Free, Pro, and Enterprise tiers, subscribe, or get 24-hour Pro access via the [Plans page](/docs/plans/overview).
 
 ## How AutoSage works
 
