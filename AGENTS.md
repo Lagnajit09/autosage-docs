@@ -987,3 +987,93 @@ When the architecture changes, update those mermaid diagrams **and** this file.
 ## 23. Cursor / Copilot Rules
 
 No `.cursor/rules/` or `.github/copilot-instructions.md` files are present. **This document is the primary reference.** Add repo-local instructions in additional `AGENTS.md` files under specific subdirectories only if a sub-tree needs a different convention from the global one.
+
+---
+
+## 24. Docs Site Deployment & RAG Sync
+
+This section covers how the `autosage-docs` documentation site is deployed and how Autobot's RAG search index is kept in sync with the live docs.
+
+### 24.1 Docs site hosting
+
+- **Host:** Firebase Hosting (`autosagexdocs.web.app`).
+- **CI/CD:** GitHub Actions (`.github/workflows/firebase-hosting.yml`) in this repo. Triggers on push to `main`.
+- **Build:** `npm install` → `npm run build` (Docusaurus) → `firebase deploy`. No runtime secrets beyond the Firebase service account in the GitHub Actions environment.
+- **PR previews:** Pull requests produce short-lived Firebase preview channels (7-day TTL) — the CI job posts the preview URL as a PR comment for review before merge.
+
+The docs site is completely separate from the product frontend (`autosagex.web.app`). The two deploy independently.
+
+### 24.2 Deploying docs changes
+
+Standard flow — no manual Firebase commands needed:
+
+1. Create a branch, make and commit your changes.
+2. Open a pull request — Firebase CI automatically creates a preview channel URL.
+3. Review content at the preview URL.
+4. Merge the PR to `main`.
+5. Firebase CI auto-deploys the new build to `autosagexdocs.web.app` within a few minutes.
+
+### 24.3 RAG sync — when to run
+
+Autobot's docs search (the widget embedded in the docs site and the `/api/ai/docs/chat/stream/` endpoint) is backed by a **pgvector HNSW index** of `DocChunk` rows in the Django database. This index is **not** updated automatically when the docs site deploys.
+
+**Run the RAG sync every time docs content changes.** This includes:
+- New pages or sections
+- Rewrites or substantial edits to existing pages
+- Deleted pages
+
+Purely cosmetic changes (whitespace, punctuation, formatting) that don't alter searchable content may skip the sync.
+
+### 24.4 Running the RAG sync
+
+SSH to the OCI A1 Django host and run the management command inside the running Django container:
+
+```bash
+# Option A — pass the path explicitly
+docker exec -it <django_container_name> \
+  python manage.py ingest_docs --docs-path /path/to/autosage-docs
+
+# Option B — use AUTOSAGE_DOCS_PATH set in server.env (preferred for production)
+docker exec -it <django_container_name> \
+  python manage.py ingest_docs
+```
+
+To use Option B, add this to `server.env` on the OCI host (replace with the actual checkout path):
+
+```
+AUTOSAGE_DOCS_PATH=/home/ubuntu/autosage-docs
+```
+
+The `autosage-docs` repo must be checked out on the OCI host (or bind-mounted into the container) and must be on the latest `main` commit before you run the command.
+
+Additional flags:
+
+```bash
+# Ingest only the docs/ or tutorials/ subtree
+python manage.py ingest_docs --source docs
+python manage.py ingest_docs --source tutorials
+
+# Dry run — parse and count chunks without writing to the database
+python manage.py ingest_docs --dry-run
+```
+
+### 24.5 What the command does
+
+1. **Deletes all existing `DocChunk` rows** for the target source from Postgres (inside `transaction.atomic()`).
+2. Walks the `docs/` and/or `tutorials/` directories, parses frontmatter, and strips MDX/JSX markup.
+3. Splits each page into heading-bounded chunks (≤ 1800 chars with 200-char overlap at paragraph boundaries).
+4. Generates 768-dim embeddings for each chunk using `BAAI/bge-base-en-v1.5` (fastembed, CPU ONNX — model is pre-baked in the Docker image, no download at runtime).
+5. Bulk-inserts the new `DocChunk` rows and rebuilds the pgvector HNSW index.
+
+There is **no API or service downtime** during re-ingest — all other Django endpoints remain up. However, **Autobot's docs search degrades momentarily** during steps 1–4 while old rows are deleted and new rows are not yet present. The degradation window is typically a few seconds to a minute. Schedule the sync during low-traffic periods if possible.
+
+### 24.6 Checklist: docs change → production
+
+| Step | Who | Action |
+|---|---|---|
+| 1 | Author | Push branch, open PR in `autosage-docs` |
+| 2 | Reviewer | Review content at the Firebase preview channel URL |
+| 3 | Author | Merge PR to `main` |
+| 4 | CI | Firebase auto-deploys docs site to `autosagexdocs.web.app` |
+| 5 | Ops | SSH to OCI A1, run `ingest_docs` management command (see §24.4) |
+| 6 | Ops | Verify: ask the Autobot widget a question that should surface the new content |
