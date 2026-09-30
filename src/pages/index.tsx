@@ -118,16 +118,14 @@ export default function Home(): JSX.Element {
         </section>
 
         <section className={styles.previewWrap}>
-          <div className={styles.previewFrame}>
-            <ThemedImage
-              alt="AutoSage product preview"
-              className={styles.previewImage}
-              sources={{
-                light: useBaseUrl("/img/autosage-landing-img.png"),
-                dark: useBaseUrl("/img/autosage-landing-img.png"),
-              }}
-            />
-          </div>
+          <ThemedImage
+            alt="Abstract illustration of AutoSage: triggers flow into the AutoSage hub and out to servers and email, with Autobot, the Key Vault, and live logs connected"
+            className={styles.previewImage}
+            sources={{
+              light: useBaseUrl("/img/autosage-hero-abstract-light.svg"),
+              dark: useBaseUrl("/img/autosage-hero-abstract-dark.svg"),
+            }}
+          />
         </section>
 
         <section className={styles.features}>
@@ -141,6 +139,17 @@ export default function Home(): JSX.Element {
               watching them execute across your fleet.
             </p>
           </header>
+
+          <div className={`${styles.previewFrame} ${styles.showcase}`}>
+            <ThemedImage
+              alt="AutoSage workflow editor showing a live scheduled run, streaming logs, and Autobot fixing a failed run and re-running it"
+              className={styles.previewImage}
+              sources={{
+                light: useBaseUrl("/img/autosage-overview-light.svg"),
+                dark: useBaseUrl("/img/autosage-overview-dark.svg"),
+              }}
+            />
+          </div>
 
           <div className={styles.featureGrid}>
             {features.map((f) => (

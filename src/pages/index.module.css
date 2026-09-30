@@ -173,35 +173,27 @@
   transform: translateY(-1px);
 }
 
-/* ===== Preview (marketing hero image — has its own dark backdrop) ===== */
+/* ===== Preview (marketing hero image — full-bleed, has its own backdrop) ===== */
 .previewWrap {
   position: relative;
   z-index: 1;
-  max-width: 1120px;
-  margin: 3.5rem auto 0;
-  padding: 0 1.5rem;
-}
-
-/* Soft purple bloom behind the image to ground it on the page. */
-.previewWrap::before {
-  content: "";
-  position: absolute;
-  inset: 8% 6% -4% 6%;
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(168, 85, 247, 0.22) 0%,
-    rgba(168, 85, 247, 0) 70%
+  /* Tighter than the old boxed layout — the top fade already adds visual space. */
+  margin-top: 1.5rem;
+  /* The art paints an opaque backdrop a shade off the page colour; fading it
+     out top and bottom hides that seam and makes it read as part of the page. */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
   );
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-[data-theme="dark"] .previewWrap::before {
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(192, 132, 252, 0.18) 0%,
-    rgba(192, 132, 252, 0) 70%
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
   );
 }
 
@@ -228,6 +220,15 @@
   display: block;
   width: 100%;
   height: auto;
+  /* ThemedImage's `[data-theme] .themedComponent--*` rule wins over the
+     display above and makes the <img> inline, leaving a descender gap
+     under it inside the frame. Top-aligning removes that gap. */
+  vertical-align: top;
+}
+
+/* Product mockup inside "What you get" — reuses .previewFrame's radius/shadow. */
+.showcase {
+  margin: 0 auto 3rem;
 }
 
 /* ===== Section primitives ===== */
