@@ -103,6 +103,7 @@ Open it in the [workflow builder](/docs/workflows/workflow-editor-guide) and edi
 
 Autobot already ships the chat foundation (generate scripts and workflows, BYO keys, usage dashboard, archived chats), the [execution copilot](/docs/autobot/execution-copilot) (run, re-run, investigate, and fix, with live streaming and password safety), **and** the docs assistant — the Autobot button on this documentation site, which answers questions from the docs with no sign-in required. What's still ahead:
 
+- **Autobot in the terminal** — chat, generate, run and fix from [SageCode](/sagecode/), with your last command's output as context (SageCode v2).
 - **Cloud-infra tools** — AWS / Ansible / Vault cloud-secret support so Autobot can help with infrastructure changes, not just scripts and workflows.
 - **Multi-modal input** — upload a screenshot of an error and ask "what's broken here?".
 - **Retrieval over your script library** so suggestions can lean on patterns from your existing code.

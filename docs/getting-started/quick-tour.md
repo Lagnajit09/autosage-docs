@@ -21,7 +21,7 @@ The dashboard is what you land on after signing in. It gives you a high-level vi
 - **Autobot — today**: your Autobot requests, tokens and quota used since 00:00 UTC, with a link to the full [Autobot Dashboard](/docs/autobot/dashboard).
 - **Totals** for your workflows, scripts and executions, with this month's activity.
 - **Recent workflows and scripts**, and your **recent executions** with their status.
-- On the right: **SageCode** (an install prompt, or your connected devices once you've signed in from the terminal), **Autobot**, and your **plan**, with an Upgrade to Pro shortcut on the Free plan.
+- On the right: **[SageCode](/sagecode/)** (an install prompt, or your connected devices once you've signed in from the terminal), **Autobot**, and your **plan**, with an Upgrade to Pro shortcut on the Free plan.
 
 <ThemedImage
   alt="The AutoSage dashboard: the Autobot usage strip, totals for workflows, scripts and executions, recent workflows and scripts, and recent executions, with the SageCode, Autobot and Upgrade to Pro cards on the right"
@@ -100,13 +100,21 @@ The **Library** is a catalog of pre-built workflows, nodes, and scripts curated 
 
 [Learn more → Autobot](/docs/autobot-intro)
 
+## SageCode
+
+**SageCode** is the AutoSage command line. Install it once and run `sagex` to build and run workflows, scripts, webhooks and schedules from your terminal or a CI pipeline, signed in with the same account. Run `sagex` on its own for a full-screen terminal app.
+
+![The SageCode terminal app: workflows, scripts, vault items, recent runs and triggers on the left, and a live workflow run drawn as a graph on the right](/img/sagecode/terminal-app.svg)
+
+[Learn more → SageCode](/sagecode/)
+
 ## Profile
 
 Your **Profile** (bottom of the left navigation) shows your account details, then four tabs:
 
 - **Usage & Activity** — totals, recent executions and your most-run workflows.
 - **Autobot** — your Autobot settings, models and today's usage.
-- **SageCode** — every device and access token signed in to SageCode, with what each has done, and Revoke.
+- **SageCode** — every device and access token signed in to SageCode, with what each has done, and Revoke. See [Sessions & Access Tokens](/sagecode/getting-started/sessions-and-tokens).
 - **Plans & Subscription** — your plan and how much of it you've used. See [Billing](/docs/plans/billing#plans--subscription-on-your-profile).
 
 Below the tabs are quick links and your account controls (deactivate or delete).
@@ -122,4 +130,5 @@ AutoSage has three tiers — **Free**, **Pro**, and **Enterprise** — plus a **
 - Haven't signed up yet? Start at [Create your account](/docs/#create-your-account).
 - Want reusable building blocks? Browse the [Library](/docs/library/overview).
 - Ready to understand pricing? See [Plans & Pricing](/docs/plans/overview).
+- Prefer the terminal? Start with [SageCode](/sagecode/getting-started/install).
 - Each section above links out to its detailed guide.

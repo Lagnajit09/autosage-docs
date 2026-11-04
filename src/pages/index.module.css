@@ -408,6 +408,14 @@
   color: var(--ifm-color-primary-light);
 }
 
+/* A product mark inside a badge (SageCode). */
+.pathwayBadgeMark {
+  height: 12px;
+  width: auto;
+  margin-right: 5px;
+  vertical-align: -2px;
+}
+
 .pathwayTitle {
   font-size: 1.25rem;
   font-weight: 600;

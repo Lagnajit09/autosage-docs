@@ -1003,6 +1003,8 @@ This section covers how the `autosage-docs` documentation site is deployed and h
 
 The docs site is completely separate from the product frontend (`autosagex.web.app`). The two deploy independently.
 
+The site has three content trees, each its own Docusaurus docs plugin with its own navbar item and sidebar: `docs/` → `/docs` (the classic preset), `tutorials/` → `/tutorials`, and `sagecode/` → `/sagecode` (the SageCode CLI). SageCode's full, generated command reference lives on `sagecode.web.app`; the `sagecode/` pages cover using it with an AutoSage account and link out for flags rather than copying them. A new tree needs a matching `DocChunk.Source` value and route in the server's `ingest_docs`, or the docs assistant won't see it.
+
 ### 24.2 Deploying docs changes
 
 Standard flow — no manual Firebase commands needed:
@@ -1049,9 +1051,10 @@ The `autosage-docs` repo must be checked out on the OCI host (or bind-mounted in
 Additional flags:
 
 ```bash
-# Ingest only the docs/ or tutorials/ subtree
+# Ingest only one subtree: docs/, tutorials/ or sagecode/
 python manage.py ingest_docs --source docs
 python manage.py ingest_docs --source tutorials
+python manage.py ingest_docs --source sagecode
 
 # Dry run — parse and count chunks without writing to the database
 python manage.py ingest_docs --dry-run
@@ -1060,7 +1063,7 @@ python manage.py ingest_docs --dry-run
 ### 24.5 What the command does
 
 1. **Deletes all existing `DocChunk` rows** for the target source from Postgres (inside `transaction.atomic()`).
-2. Walks the `docs/` and/or `tutorials/` directories, parses frontmatter, and strips MDX/JSX markup.
+2. Walks the `docs/`, `tutorials/` and/or `sagecode/` directories, parses frontmatter, and strips MDX/JSX markup.
 3. Splits each page into heading-bounded chunks (≤ 1800 chars with 200-char overlap at paragraph boundaries).
 4. Generates 768-dim embeddings for each chunk using `BAAI/bge-base-en-v1.5` (fastembed, CPU ONNX — model is pre-baked in the Docker image, no download at runtime).
 5. Bulk-inserts the new `DocChunk` rows and rebuilds the pgvector HNSW index.

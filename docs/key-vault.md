@@ -75,3 +75,7 @@ Servers can be **edited** and **viewed** anytime as needed.
 :::tip One-less step in Action node configuration
 If a server has a **default credential linked**, simply selecting that server in a workflow's [Action node configuration](/docs/workflows/nodes-and-edges/action-nodes) will **auto-select** its credential — saving you a step.
 :::
+
+:::tip From the terminal
+Create vaults, servers and keys with [SageCode](/sagecode/guides/key-vault): `sagex create key deploy-key --vault prod -t ssh --key-file ~/.ssh/id_ed25519`. Secrets are typed at hidden prompts or read from a file, never passed as flags.
+:::

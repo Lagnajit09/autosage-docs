@@ -124,3 +124,4 @@ Use Response when you want to compare runs at a glance — for example, "which r
 - [Parameters](/docs/workflows/nodes-and-edges/parameters) — declare the inputs that show up in the Configuration panel.
 - [Decision Nodes](/docs/workflows/nodes-and-edges/decision-nodes) — understand when a node ends up `Skipped` in the Nodes panel.
 - [Import and Export](/docs/workflows/import-and-export) — move a workflow (and its node graph) between accounts before running it elsewhere.
+- [Run it from the terminal](/sagecode/guides/scripts-and-workflows#run-a-workflow) — `sagex run workflow` starts a workflow and follows it node by node, and exits non-zero if it fails.

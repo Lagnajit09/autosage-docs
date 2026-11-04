@@ -27,6 +27,7 @@ If you've used tools like n8n or Zapier, the workflow concept will feel familiar
 - **Watch executions live** — every run streams stdout and stderr back to your browser as it happens, with full logs preserved for later review.
 - **Browse the Library** — fork curated workflows, copy pre-configured nodes, and clone scripts from the [AutoSage Library](/docs/library/overview) into your own account.
 - **Manage your plan** — compare Free, Pro, and Enterprise tiers, subscribe, or get 24-hour Pro access via the [Plans page](/docs/plans/overview).
+- **Work from the terminal** — [SageCode](/sagecode/), the AutoSage command line, runs and builds workflows, scripts and triggers from your shell or CI.
 
 ## How AutoSage works
 
@@ -63,3 +64,7 @@ Already have an account? Sign in at **[autosagex.web.app/signin](https://autosag
 ## Meet Autobot
 
 AutoSage includes a built-in AI assistant called **[Autobot](/docs/autobot-intro)** that chats with you, generates scripts, drafts workflows from a prompt, and reads your existing library to give grounded answers — all from inside your account. Head to the [Autobot section](/docs/autobot-intro) to get started.
+
+## Prefer the terminal?
+
+**[SageCode](/sagecode/)** is the AutoSage command line. Run `sagex` to build and run workflows, scripts, webhooks and schedules from your shell or a CI pipeline, signed in with this same account. Start with [Install & Sign In](/sagecode/getting-started/install).

@@ -115,6 +115,21 @@
   background-position: center;
 }
 
+/* SageCode navbar item: its mark before the label, in the variant for each theme. */
+.navbar-sagecode-link::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: -3px;
+  background: url("/img/sagecode/mark-light.svg") no-repeat center / contain;
+}
+
+[data-theme="dark"] .navbar-sagecode-link::before {
+  background-image: url("/img/sagecode/mark-dark.svg");
+}
+
 /* GitHub Navbar Icon */
 .header-github-link {
   padding: 0 12px;

@@ -46,7 +46,7 @@ How many of each your plan allows is on the [Plans](/docs/plans/overview) page.
 
 ## The cards on the right
 
-- **SageCode** — the AutoSage command line. Until you've used it, the card shows the install command and a link to the SageCode site. Once you've signed in from a terminal it says **Connected**, with how many devices and access tokens you have and when one was last active; **Manage devices** opens the SageCode tab of your profile.
+- **SageCode** — the AutoSage command line. Until you've used it, the card shows the install command and a link to the SageCode site. Once you've signed in from a terminal it says **Connected**, with how many devices and access tokens you have and when one was last active; **Manage devices** opens the [SageCode tab of your profile](/sagecode/getting-started/sessions-and-tokens).
 - **Meet Autobot** — opens a chat with [Autobot](/docs/autobot-intro).
 - **Your plan** — a thin bar under the two cards. On the Free plan it's **Upgrade to Pro**, which opens the [Plans](/docs/plans/overview) page. On a paid plan it shows the plan and when it renews, and opens [Billing](/docs/plans/billing).
 

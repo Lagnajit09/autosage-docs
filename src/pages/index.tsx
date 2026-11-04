@@ -46,7 +46,7 @@ const features: Feature[] = [
   },
   {
     title: "Run anywhere, anytime",
-    body: "Trigger workflows manually, on a cron schedule, or via authenticated HTTP webhooks from any external system.",
+    body: "Trigger workflows manually, on a cron schedule, via authenticated HTTP webhooks, or from your terminal and CI with SageCode.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="8.5" />
@@ -193,6 +193,32 @@ export default function Home(): JSX.Element {
               </p>
               <span className={styles.pathwayLink}>
                 Start a tutorial
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link className={styles.pathway} to="/sagecode/">
+              <div className={styles.pathwayBadge}>
+                <ThemedImage
+                  alt=""
+                  width={14}
+                  className={styles.pathwayBadgeMark}
+                  sources={{
+                    light: useBaseUrl("/img/sagecode/mark-light.svg"),
+                    dark: useBaseUrl("/img/sagecode/mark-dark.svg"),
+                  }}
+                />
+                SageCode
+              </div>
+              <h3 className={styles.pathwayTitle}>AutoSage in your terminal</h3>
+              <p className={styles.pathwayBody}>
+                The <code>sagex</code> command line: run and build workflows,
+                scripts, webhooks and schedules from your shell or CI.
+              </p>
+              <span className={styles.pathwayLink}>
+                Explore SageCode
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>

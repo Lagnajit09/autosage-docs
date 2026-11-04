@@ -205,3 +205,7 @@ For scheduled runs there's never a caller-supplied value, so the default is alwa
 ### History and logs
 
 Scheduled runs show up in the AutoSage console alongside manual and webhook runs. Open the workflow's run history to see each scheduled execution, its status, duration, per-node results, and full logs.
+
+:::tip From the terminal
+[SageCode](/sagecode/guides/triggers) creates, fires and follows both kinds of trigger: `sagex trigger create Deploy -t http`, `sagex trigger fire Deploy`, `sagex trigger watch Backup`.
+:::

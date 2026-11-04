@@ -74,3 +74,4 @@ Filter to **Last 7 days** (or **Current month**), then bulk-export as CSV for a 
 
 - [Workflow Execution](/docs/workflows/workflow-execution) — the per-workflow execution page, with the live terminal and history scoped to one workflow.
 - [Script Execution](/docs/script-editor/script-execution) — single-script runs from the editor; these also appear in Execution Logs.
+- [Runs from the terminal](/sagecode/guides/runs-and-logs) — `sagex list run`, `sagex show run --logs` and `sagex copy run --since 7days` with SageCode.

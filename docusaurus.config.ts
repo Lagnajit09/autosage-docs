@@ -66,6 +66,19 @@ const config: Config = {
         editUrl: "https://github.com/Lagnajit09/autosage-docs/tree/main/",
       },
     ],
+    // SageCode — the AutoSage command line (`sagex`). Its full, generated command
+    // reference lives on https://sagecode.web.app; these pages cover using it
+    // with an AutoSage account (and feed the docs assistant, via ingest_docs).
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "sagecode",
+        path: "sagecode",
+        routeBasePath: "/sagecode",
+        sidebarPath: "./sidebarsSageCode.ts",
+        editUrl: "https://github.com/Lagnajit09/autosage-docs/tree/main/",
+      },
+    ],
   ],
 
   themes: [
@@ -76,7 +89,7 @@ const config: Config = {
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
-        docsRouteBasePath: ["/docs", "/tutorials"],
+        docsRouteBasePath: ["/docs", "/tutorials", "/sagecode"],
         language: ["en"],
         highlightSearchTermsOnTargetPage: true,
         searchResultLimits: 8,
@@ -105,6 +118,14 @@ const config: Config = {
           docsPluginId: "tutorials",
           position: "left",
           label: "Tutorials",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "sagecodeSidebar",
+          docsPluginId: "sagecode",
+          position: "left",
+          label: "SageCode",
+          className: "navbar-sagecode-link",
         },
         {
           type: "search",
