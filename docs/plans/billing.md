@@ -4,6 +4,9 @@ title: Billing & Invoices
 description: View your current plan, manage your subscription, and download payment receipts from the AutoSage Billing page.
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Billing & Invoices
 
 The **Billing** page (accessible from the left navigation) is where you manage your subscription and review payment history.
@@ -12,7 +15,13 @@ The **Billing** page (accessible from the left navigation) is where you manage y
 
 The Billing page has two tabs: **Overview** and **Invoices**.
 
-<!-- TODO: add screenshot of the Billing page Overview tab -->
+<ThemedImage
+  alt="The Billing page's Overview tab for a Pro subscriber: the current plan at $15 a month with its renewal date and limits, Change Plan and Cancel Subscription, the Pro Day Pass row, and this month's usage bars"
+  sources={{
+    light: useBaseUrl('/img/screenshots/billing-overview-light.png'),
+    dark: useBaseUrl('/img/screenshots/billing-overview-dark.png'),
+  }}
+/>
 
 ### Overview tab
 
@@ -48,24 +57,38 @@ Subscription invoices come from Razorpay; Day Pass receipts are stored locally b
 
 | Column | Description |
 |---|---|
-| **Invoice #** | Reference number for the payment record |
+| **Invoice** | Reference number for the payment record |
 | **Date** | Date the payment was processed |
-| **Description** | "Pro Subscription" or "Pro Day Pass (24 hrs)" |
-| **Amount** | Charged amount with currency (USD or INR) |
+| **Amount** | Charged amount with currency (USD for subscriptions, INR for Day Pass receipts) |
 | **Status** | Payment status (paid, pending, etc.) |
 
-<!-- TODO: add screenshot of the Invoices tab -->
+<ThemedImage
+  alt="The Billing page's Invoices tab: a billing history table of invoice number, date, amount and status, with two USD Pro subscription invoices and an INR Day Pass receipt, all paid"
+  sources={{
+    light: useBaseUrl('/img/screenshots/billing-invoices-light.png'),
+    dark: useBaseUrl('/img/screenshots/billing-invoices-dark.png'),
+  }}
+/>
 
-## Plan widget on your profile
+## Plans & Subscription on your profile
 
-Your **Profile** page includes a compact **Plan & Subscription** widget that shows:
+Your **Profile** page has a **Plans & Subscription** tab ([autosagex.web.app/profile#plan](https://autosagex.web.app/profile#plan)) that shows:
 
 - Your current plan badge (Free / Pro / Enterprise)
 - Billing interval (Monthly / Annual) for Pro subscribers
+- The features your plan includes
 - A usage summary with progress bars for workflows, workflow runs, and script executions
 - An **Upgrade to Pro** shortcut button (for Free users) that navigates to the Billing page
 
-<!-- TODO: add screenshot of the PlanSubscription widget on the Profile page -->
+<ThemedImage
+  alt="The Profile page's Plans & Subscription tab: the Free plan badge and its features on the left, and usage bars for workflows, workflow runs and script executions with an Upgrade to Pro button on the right"
+  sources={{
+    light: useBaseUrl('/img/screenshots/profile-plan-light.png'),
+    dark: useBaseUrl('/img/screenshots/profile-plan-dark.png'),
+  }}
+/>
+
+The **Dashboard** also shows your plan in a thin bar under the SageCode and Autobot cards: **Upgrade to Pro** on the Free plan, or your plan and its renewal date on a paid one. Click it to open the Plans or Billing page.
 
 ## What's next
 

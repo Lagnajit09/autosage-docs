@@ -4,6 +4,9 @@ title: Using Library Items
 description: Fork workflows, copy nodes, and fork scripts from the AutoSage Library into your own account.
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Using Library Items
 
 The Library provides three fork actions — one per usable item type. Each action creates a personal copy you own and can modify freely.
@@ -18,7 +21,13 @@ The Library provides three fork actions — one per usable item type. Each actio
 4. The new workflow appears on your **Workflows** page as a draft with the original name.
 5. Open it in the [Workflow Editor](/docs/workflows/workflow-editor-guide), configure each Action node with your own vault resources, then save and run.
 
-<!-- TODO: add screenshot of a forked workflow open in the editor -->
+<ThemedImage
+  alt="A forked Library workflow open in the Workflow Editor, with the Check disk usage action node selected and its Server and Credentials fields empty, waiting for your own vault resources"
+  sources={{
+    light: useBaseUrl('/img/screenshots/library-fork-editor-light.png'),
+    dark: useBaseUrl('/img/screenshots/library-fork-editor-dark.png'),
+  }}
+/>
 
 :::tip Set up vault resources first
 Before forking a workflow that connects to servers, make sure the required servers and credentials are already saved in your [Key Vault](/docs/key-vault). Re-linking them is the main configuration step between "forked" and "runnable."

@@ -19,8 +19,8 @@ AutoSage has three tiers and a one-time day pass. All accounts start on the **Fr
 | **Workflow runs / month** | 30 | 300 | Unlimited |
 | **Autobot turns / day** (admin key) | 10 | 100 | Unlimited |
 | **Threads** | 10 | Unlimited | Unlimited |
-| **HTTP triggers** | 1 | 20 | Unlimited |
-| **Schedule triggers** | 1 | 20 | Unlimited |
+| **HTTP triggers** | 5 | 20 | Unlimited |
+| **Schedule triggers** | 5 | 20 | Unlimited |
 | **Vault entries** | 5 | 50 | Unlimited |
 | **Execution mode (Autobot)** | No | Yes | Yes |
 | **Pro Day Pass** | Available | — | — |

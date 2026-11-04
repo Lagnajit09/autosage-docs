@@ -65,8 +65,8 @@ const features: Feature[] = [
     ),
   },
   {
-    title: "Autobot (coming soon)",
-    body: "A built-in AI assistant that drafts scripts, suggests workflows from a prompt, and helps debug failing runs.",
+    title: "Autobot",
+    body: "A built-in AI assistant that drafts scripts, builds workflows from a prompt, runs them, and helps fix failing runs.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="4" y="7" width="16" height="12" rx="3" />

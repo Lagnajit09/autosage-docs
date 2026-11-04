@@ -4,6 +4,9 @@ title: Pro Day Pass
 description: Get 24 hours of full Pro access for ₹99 — no subscription required, no recurring commitment.
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Pro Day Pass
 
 The Pro Day Pass is a one-time purchase that grants **24 hours of full Pro-tier access** for ₹99. It is designed for users who need a short burst of higher limits without committing to a monthly or annual subscription.
@@ -23,18 +26,25 @@ The Day Pass is priced at ₹99 (INR) and processed via Razorpay. The Pro subscr
 - **Not available during an active pass.** You cannot stack or extend a pass that is already running.
 
 :::caution Free users only
-If you are on a Pro or Enterprise plan, the Day Pass widget does not appear. It is specifically a bridge for users who want occasional Pro access without subscribing.
+If you are on a Pro or Enterprise plan, there's no Day Pass button: the Pro card on the Plans page shows your current plan, and the Billing page marks the Day Pass as unavailable. It is specifically a bridge for users who want occasional Pro access without subscribing.
 :::
 
 ## How to purchase
 
-1. Open the **Plans** page from the left navigation.
-2. Scroll to the **Pro Day Pass** widget below the Free plan column.
-3. Click **Get Day Pass**.
-4. The Razorpay checkout overlay appears — complete the ₹99 payment.
-5. The **Pro Activation** overlay polls for confirmation and closes automatically once your 24-hour window is active.
+1. Start the Day Pass from either place:
+   - **Plans** page (left navigation): on the **Pro** plan card, below the subscribe buttons, click **Pro Day Pass — ₹99 / 24 hours**.
+   - **Billing** page: on the **Overview** tab, click **Get Day Pass — ₹99**.
+2. The Razorpay checkout overlay appears — complete the ₹99 payment.
+3. The **Pro Activation** overlay polls for confirmation and closes automatically once your 24-hour window is active.
 
-<!-- TODO: add screenshot of the Day Pass widget on the Plans page -->
+<ThemedImage
+  alt="The Pro plan card on the Plans page: $15 a month or $120 a year, its limits and features, the Subscribe Monthly and Subscribe Yearly buttons, and below them 'Just want to try Pro? Grab a 24 hours pass.' with the Pro Day Pass — ₹99 / 24 hours button"
+  width={352}
+  sources={{
+    light: useBaseUrl('/img/screenshots/plans-day-pass-light.png'),
+    dark: useBaseUrl('/img/screenshots/plans-day-pass-dark.png'),
+  }}
+/>
 
 ## What you get for 24 hours
 

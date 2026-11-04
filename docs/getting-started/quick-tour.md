@@ -16,33 +16,36 @@ If you haven't signed up yet, start with [Create your account](/docs/#create-you
 
 ## Dashboard
 
-The dashboard is what you land on after signing in. It gives you a high-level view of your account: recent workflow runs, quick links into the workflows list and notifications about scheduled or failing runs.
+The dashboard is what you land on after signing in. It gives you a high-level view of your account:
+
+- **Autobot — today**: your Autobot requests, tokens and quota used since 00:00 UTC, with a link to the full [Autobot Dashboard](/docs/autobot/dashboard).
+- **Totals** for your workflows, scripts and executions, with this month's activity.
+- **Recent workflows and scripts**, and your **recent executions** with their status.
+- On the right: **SageCode** (an install prompt, or your connected devices once you've signed in from the terminal), **Autobot**, and your **plan**, with an Upgrade to Pro shortcut on the Free plan.
 
 <ThemedImage
-  alt="Dashboard"
+  alt="The AutoSage dashboard: the Autobot usage strip, totals for workflows, scripts and executions, recent workflows and scripts, and recent executions, with the SageCode, Autobot and Upgrade to Pro cards on the right"
   sources={{
     light: useBaseUrl('/img/screenshots/dashboard-light.png'),
     dark: useBaseUrl('/img/screenshots/dashboard-dark.png'),
   }}
 />
-<!-- TODO: replace with real screenshot of the dashboard -->
 
-<!-- TODO: add "Learn more → /dashboard" once the Dashboard page exists -->
+[Learn more → Dashboard](/docs/dashboard)
 
 ## Workflows
 
 The **Workflows** page lists every workflow in your account. From here you can create a new workflow, open an existing one to edit, duplicate or delete a workflow, and see its last run status at a glance.
 
 <ThemedImage
-  alt="Workflows list"
+  alt="The Workflows page: tabs for all workflows, HTTP webhooks and job schedulers, a search box, and a grid of workflow cards, each with its node count, last change, and Edit and Run buttons"
   sources={{
     light: useBaseUrl('/img/screenshots/workflows-list-light.png'),
     dark: useBaseUrl('/img/screenshots/workflows-list-dark.png'),
   }}
 />
-<!-- TODO: replace with real screenshot of the workflows list -->
 
-<!-- TODO: add "Learn more → /workflows" once the Workflows page exists -->
+[Learn more → Workflows](/docs/workflows/what-is-a-workflow)
 
 ## Workflow editor
 
@@ -55,30 +58,27 @@ The workflow editor is the canvas where you assemble a workflow by dragging and 
 AutoSage uses a **one-node-one-server** model: each Action node points at exactly one server. To run something across multiple servers in a single workflow, add one Action node per server — they execute in parallel where the graph allows.
 
 <ThemedImage
-  alt="Workflow editor canvas"
+  alt="The workflow editor canvas: a nightly schedule trigger runs a disk-usage check, a decision node branches on usage above 80%, and the branches clean old logs and send an email report or an all-clear email"
   sources={{
     light: useBaseUrl('/img/screenshots/workflow-editor-light.png'),
     dark: useBaseUrl('/img/screenshots/workflow-editor-dark.png'),
   }}
 />
-<!-- TODO: replace with real screenshot of the workflow editor -->
 
-<!-- TODO: add "Learn more → /workflow-editor" once the Workflow editor page exists -->
+[Learn more → Workflow Editor](/docs/workflows/workflow-editor-guide)
 
 ## Script editor
 
 The built-in script editor is where you write the script that an Action node runs. It supports **Python**, **PowerShell**, and **Shell**, with syntax highlighting for each. Scripts are saved alongside the workflow and versioned with it.
 
 <ThemedImage
-  alt="Script editor"
+  alt="The Script Editor: the Explorer list of scripts, disk_check.sh open in the editor, and the terminal panel below with server and credential pickers and the script's parameters"
   sources={{
     light: useBaseUrl('/img/screenshots/script-editor-light.png'),
     dark: useBaseUrl('/img/screenshots/script-editor-dark.png'),
   }}
 />
-<!-- TODO: replace with real screenshot of the script editor -->
-
-<!-- TODO: add "Learn more → /script-editor" once the Script editor page exists -->
+[Learn more → Script Editor](/docs/script-editor/editor-guide)
 
 ## Library
 
@@ -91,7 +91,6 @@ The **Library** is a catalog of pre-built workflows, nodes, and scripts curated 
     dark: useBaseUrl('/img/screenshots/library-dark.png'),
   }}
 />
-<!-- TODO: replace with real screenshot of the Library page -->
 
 [Learn more → Library](/docs/library/overview)
 
@@ -99,7 +98,18 @@ The **Library** is a catalog of pre-built workflows, nodes, and scripts curated 
 
 **Autobot** is the built-in AI assistant. It can answer questions about your account, generate scripts and full workflows from a prompt, and — in [execution mode](/docs/autobot/execution-copilot) — trigger runs directly from chat. Autobot is available from the left navigation and from a floating button inside the Workflow Editor.
 
-<!-- TODO: add "Learn more → /autobot/autobot-intro" once preferred -->
+[Learn more → Autobot](/docs/autobot-intro)
+
+## Profile
+
+Your **Profile** (bottom of the left navigation) shows your account details, then four tabs:
+
+- **Usage & Activity** — totals, recent executions and your most-run workflows.
+- **Autobot** — your Autobot settings, models and today's usage.
+- **SageCode** — every device and access token signed in to SageCode, with what each has done, and Revoke.
+- **Plans & Subscription** — your plan and how much of it you've used. See [Billing](/docs/plans/billing#plans--subscription-on-your-profile).
+
+Below the tabs are quick links and your account controls (deactivate or delete).
 
 ## Plans & Pricing
 

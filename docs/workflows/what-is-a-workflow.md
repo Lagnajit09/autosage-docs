@@ -90,9 +90,7 @@ When you trigger a workflow, AutoSage:
 4. **Streams logs in real time** — stdout and stderr from each script are pushed to your browser as they happen.
 5. **Marks the run** — when the graph is done (or a node fails irrecoverably), the run finishes with status `success`, `failed`, or `cancelled`.
 
-You can watch all of this from the Run history view.
-
-<!-- TODO: link "Run history" to its deep-dive page once it exists -->
+You can watch all of this live on the [workflow execution page](/docs/workflows/workflow-execution), and look back at earlier runs in its [History tab](/docs/workflows/workflow-execution#history-tab).
 
 ## What you'll need
 

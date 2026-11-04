@@ -5,6 +5,9 @@ title: Introduction
 description: AutoSage is a server management and workflow automation platform. Run scripts on your servers manually, on a schedule, or via webhooks — all from one dashboard.
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Introduction
 
 Welcome to AutoSage.
@@ -43,11 +46,18 @@ Each Action node targets exactly **one** server, which is why a single workflow 
 
 Already have an account? Sign in at **[autosagex.web.app/signin](https://autosagex.web.app/signin)**.
 
-<!-- TODO: replace with real screenshot of /signup -->
+<ThemedImage
+  alt="The AutoSage Create an Account page: first and last name, email, a terms checkbox, Continue with Email, and Continue with GitHub or Google"
+  sources={{
+    light: useBaseUrl('/img/screenshots/signup-light.png'),
+    dark: useBaseUrl('/img/screenshots/signup-dark.png'),
+  }}
+/>
 
 ## What's next
 
 - [Quick Tour](/docs/quick-tour) — a five-minute walkthrough of every part of the app.
+- [Dashboard](/docs/dashboard) — what you see right after signing in.
 <!-- TODO: add "Build your first workflow" tutorial link once that page exists -->
 
 ## Meet Autobot

@@ -28,7 +28,13 @@ Four item types are available:
 
 ## Browsing the Library
 
-<!-- TODO: add screenshot of the Library page with filter tabs and grid view -->
+<ThemedImage
+  alt="The Library page: All, Workflows, Nodes and Scripts filter tabs, a search box, the grid and list view toggle, and a grid of library item cards"
+  sources={{
+    light: useBaseUrl('/img/screenshots/library-light.png'),
+    dark: useBaseUrl('/img/screenshots/library-dark.png'),
+  }}
+/>
 
 ### Filter tabs
 
@@ -48,7 +54,13 @@ A toggle in the top-right corner of the Library switches between **grid view** (
 
 ## Library cards
 
-<!-- TODO: add screenshot of Library item cards -->
+<ThemedImage
+  alt="Three Library cards: two verified workflows with Preview and Use Workflow buttons and a verified script with Fork Script, each showing its tags, category, author and number of uses"
+  sources={{
+    light: useBaseUrl('/img/screenshots/library-cards-light.png'),
+    dark: useBaseUrl('/img/screenshots/library-cards-dark.png'),
+  }}
+/>
 
 Each card (or list row) displays:
 
@@ -66,7 +78,13 @@ Each card (or list row) displays:
 
 Workflow cards include a **Preview** button. Clicking it opens a read-only canvas showing the full node graph: trigger, action, and decision nodes with their connections, color-coded by type (green = trigger, blue = action, amber = decision). No credential or secret values are shown.
 
-<!-- TODO: add screenshot of the workflow preview modal -->
+<ThemedImage
+  alt="The workflow preview modal for Nightly Disk Cleanup: a read-only canvas with a green trigger, blue action nodes and an amber decision node, with zoom controls"
+  sources={{
+    light: useBaseUrl('/img/screenshots/library-preview-light.png'),
+    dark: useBaseUrl('/img/screenshots/library-preview-dark.png'),
+  }}
+/>
 
 :::tip Check vault requirements before forking
 The preview shows which nodes reference vault credentials. Make sure you have matching servers and credentials saved in your [Key Vault](/docs/key-vault) before forking — vault bindings are stripped on fork and must be re-linked in the Workflow Editor.
