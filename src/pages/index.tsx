@@ -1,9 +1,10 @@
-import React, { JSX } from "react";
+import React, { JSX, useState } from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import ThemedImage from "@theme/ThemedImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useBrokenLinks from "@docusaurus/useBrokenLinks";
 import styles from "./index.module.css";
 
 type Feature = {
@@ -76,6 +77,166 @@ const features: Feature[] = [
   },
 ];
 
+const SAGECODE_INSTALL = "uv tool install sagex-cli";
+
+const sagecodePoints: Feature[] = [
+  {
+    title: "Run and watch live",
+    body: "Start any workflow or script and follow it node by node, right in your shell.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="m7 9 3 3-3 3M13 15h4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Webhooks and schedules",
+    body: "Create, fire and follow HTTP triggers and cron schedules from the terminal.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 7v5l3 2" />
+      </svg>
+    ),
+  },
+  {
+    title: "Made for CI/CD",
+    body: "Exit codes that follow the run, --json output, and access tokens for pipelines.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.5" />
+        <circle cx="6" cy="18" r="2.5" />
+        <circle cx="18" cy="12" r="2.5" />
+        <path d="M6 8.5v7M8.3 7.1l7.4 3.8M8.3 16.9l7.4-3.8" />
+      </svg>
+    ),
+  },
+  {
+    title: "Signed in, not copied",
+    body: "Approve each device in your browser; see and revoke every session on your profile.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 3 5 6v5c0 4.5 3 8.2 7 10 4-1.8 7-5.5 7-10V6l-7-3Z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
+  },
+];
+
+// Introduces SageCode (the `sagex` CLI). The hero's "New" pill links here (#sagecode).
+function SageCodeSection(): JSX.Element {
+  const [copied, setCopied] = useState(false);
+  // A custom id isn't seen by Docusaurus' broken-anchor check unless it's registered.
+  useBrokenLinks().collectAnchor("sagecode");
+
+  const copyInstall = async () => {
+    try {
+      await navigator.clipboard.writeText(SAGECODE_INSTALL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      // Clipboard blocked (permissions / insecure context): the command stays selectable.
+    }
+  };
+
+  return (
+    <section id="sagecode" className={styles.sagecode}>
+      <div className={styles.sagecodePanel}>
+        <div className={styles.sagecodeTop}>
+          <div>
+            <span className={styles.eyebrow}>
+              <ThemedImage
+                alt=""
+                width={14}
+                className={styles.pathwayBadgeMark}
+                sources={{
+                  light: useBaseUrl("/img/sagecode/mark-light.svg"),
+                  dark: useBaseUrl("/img/sagecode/mark-dark.svg"),
+                }}
+              />
+              New · SageCode
+            </span>
+            <h2 className={styles.sectionTitle}>
+              AutoSage, <span className={styles.titleAccent}>in your terminal.</span>
+            </h2>
+            <p className={styles.sagecodeLead}>
+              SageCode is the AutoSage command line. Build, run and watch your
+              workflows, scripts, webhooks and schedules from your shell or a
+              CI pipeline, signed in with the same account — all with one
+              command, <code>sagex</code>.
+            </p>
+
+            <div className={styles.sagecodeInstall}>
+              <span className={styles.sagecodePrompt} aria-hidden="true">$</span>
+              <code className={styles.sagecodeCommand}>{SAGECODE_INSTALL}</code>
+              <button
+                type="button"
+                className={styles.sagecodeCopyBtn}
+                onClick={copyInstall}
+                aria-label={copied ? "Copied" : "Copy install command"}
+                title={copied ? "Copied" : "Copy"}
+              >
+                {copied ? (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="m5 12 5 5L20 7" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="12" height="12" rx="2" />
+                    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+                  </svg>
+                )}
+              </button>
+            </div>
+
+            <div className={styles.sagecodeCtas}>
+              <Link className={styles.ctaPrimary} to="/sagecode/">
+                Read the SageCode docs
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </Link>
+              <Link className={styles.ctaSecondary} to="/sagecode/getting-started/install">
+                Install &amp; sign in
+              </Link>
+            </div>
+            <p className={styles.sagecodeNote}>
+              Recipes and the full command reference are on{" "}
+              <a href="https://sagecode.web.app" target="_blank" rel="noopener noreferrer">
+                sagecode.web.app
+              </a>
+              .
+            </p>
+          </div>
+
+          <Link className={styles.sagecodeShot} to="/sagecode/guides/terminal-app">
+            <img
+              src={useBaseUrl("/img/sagecode/terminal-app.svg")}
+              alt="The SageCode terminal app: workflows, scripts, vault items, recent runs and triggers on the left, and a live workflow run drawn as a graph on the right"
+              width={1726}
+              height={928}
+              loading="lazy"
+            />
+          </Link>
+        </div>
+
+        <ul className={styles.sagecodePoints}>
+          {sagecodePoints.map((p) => (
+            <li key={p.title} className={styles.sagecodePoint}>
+              <span className={styles.sagecodePointIcon}>{p.icon}</span>
+              <span>
+                <span className={styles.sagecodePointTitle}>{p.title}</span>
+                <span className={styles.sagecodePointBody}>{p.body}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
@@ -115,6 +276,14 @@ export default function Home(): JSX.Element {
               Browse tutorials
             </Link>
           </div>
+
+          <Link className={styles.newPill} to="#sagecode">
+            <span className={styles.newPillTag}>New</span>
+            SageCode: AutoSage in your terminal
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </Link>
         </section>
 
         <section className={styles.previewWrap}>
@@ -161,6 +330,8 @@ export default function Home(): JSX.Element {
             ))}
           </div>
         </section>
+
+        <SageCodeSection />
 
         <section className={styles.pathways}>
           <header className={styles.sectionHeader}>

@@ -325,6 +325,281 @@
   margin: 0;
 }
 
+/* ===== Hero "New" pill (jumps to the SageCode section) ===== */
+.newPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 4px 12px 4px 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-800);
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 999px;
+  text-decoration: none !important;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.newPill:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.newPill svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.15s ease;
+}
+
+.newPill:hover svg {
+  transform: translateX(2px);
+}
+
+.newPillTag {
+  padding: 2px 8px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-lightest);
+  border-radius: 999px;
+}
+
+[data-theme="dark"] .newPillTag {
+  background: rgba(192, 132, 252, 0.14);
+  color: var(--ifm-color-primary-light);
+}
+
+/* ===== SageCode (the AutoSage command line) ===== */
+.sagecode {
+  max-width: 1080px;
+  margin: 6rem auto 0;
+  padding: 0 1.5rem;
+  scroll-margin-top: 5rem; /* clear the sticky navbar when jumped to */
+}
+
+.sagecodePanel {
+  position: relative;
+  padding: 2.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 20px;
+  background: var(--ifm-background-color);
+  overflow: hidden;
+}
+
+/* The hero's grid backdrop, fading out from the top left, plus a purple glow. */
+.sagecodePanel::before,
+.sagecodePanel::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.sagecodePanel::before {
+  inset: 0;
+  background-image:
+    linear-gradient(var(--ifm-color-emphasis-200) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ifm-color-emphasis-200) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at top left, rgba(0, 0, 0, 0.5), transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at top left, rgba(0, 0, 0, 0.5), transparent 65%);
+}
+
+.sagecodePanel::after {
+  top: -6rem;
+  right: -6rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.16);
+  filter: blur(64px);
+}
+
+.sagecodePanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Copy on the left, the terminal app on the right; the capabilities run below. */
+.sagecodeTop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.sagecodeLead {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0 0 1.75rem;
+}
+
+.sagecodePoints {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sagecodePoint {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.sagecodePointIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .sagecodePointIcon {
+  background: rgba(192, 132, 252, 0.12);
+  color: var(--ifm-color-primary-light);
+}
+
+.sagecodePointIcon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sagecodePointTitle {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.sagecodePointBody {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.sagecodeInstall {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 26rem;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-color-emphasis-100);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+}
+
+.sagecodePrompt {
+  color: #d77757;
+  user-select: none;
+}
+
+/* Undo Docusaurus' inline-code chip styling: this is the whole command line. */
+.sagecodeCommand {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ifm-color-emphasis-900);
+  font-size: inherit;
+}
+
+.sagecodeCopyBtn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.sagecodeCopyBtn:hover {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.sagecodeCopyBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sagecodeCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sagecodeNote {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.sagecodeShot {
+  display: block;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 24px 48px -20px rgba(15, 15, 25, 0.35),
+    0 10px 24px -8px rgba(168, 85, 247, 0.16);
+  transition: transform 0.2s ease;
+}
+
+.sagecodeShot:hover {
+  transform: translateY(-2px);
+}
+
+.sagecodeShot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 996px) {
+  .sagecodePanel {
+    padding: 1.75rem;
+  }
+  .sagecodeTop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sagecodePoints {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .sagecodePoints {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ===== Pathways (Docs vs Tutorials) ===== */
 .pathways {
   max-width: 1080px;
@@ -473,6 +748,7 @@
     padding-top: 3.5rem;
   }
   .features,
+  .sagecode,
   .pathways {
     margin-top: 4.5rem;
   }
